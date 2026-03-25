@@ -1,0 +1,47 @@
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo" (click)="navigateTo('home')">
+      <img src="assets/images/logo.jpg" alt="logo">
+      <span>PowerElectric</span>
+    </div>
+
+    <!-- MENU -->
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+
+      <li><a (click)="navigateTo('home')" class="nav-link">Home</a></li>
+      <li><a (click)="navigateTo('services')" class="nav-link">Services</a></li>
+      <li><a (click)="navigateTo('about')" class="nav-link">About Us</a></li>
+      <li><a (click)="navigateTo('testimonials')" class="nav-link">Testimonials</a></li>
+      <li><a (click)="navigateTo('blog')" class="nav-link">Blog</a></li>
+      <li><a (click)="navigateTo('feedback-form')" class="nav-link">Feedback</a></li>
+      <li><a (click)="navigateTo('contact')" class="nav-link">Contact</a></li>
+
+    </ul>
+
+    <!-- WHATSAPP HEADER BUTTON -->
+    <a href="https://wa.me/919454445071?text=Hello%20I%20want%20to%20know%20about%20your%20services" 
+       target="_blank" 
+       class="whatsapp-header" 
+       aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MOBILE MENU BUTTON -->
+    <div class="hamburger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Floating WhatsApp -->
+<a class="whatsapp-float" href="https://wa.me/919454445071?text=Hello%20I%20want%20to%20know%20about%20your%20services"
+  target="_blank">
+
+  <i class="fab fa-whatsapp"></i>
+
+</a>

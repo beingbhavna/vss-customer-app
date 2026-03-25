@@ -1,0 +1,166 @@
+<section id="feedback-dashboard" class="feedback-dashboard">
+  <div class="container">
+    <h2 class="dashboard-title">Customer Feedback Dashboard</h2>
+    <p class="dashboard-subtitle">View and manage all customer reviews and feedback</p>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ totalFeedbacks }}</h3>
+          <p>Total Feedbacks</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ averageRating }}/5</h3>
+          <p>Average Rating</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-smile"></i>
+        </div>
+        <div class="stat-content">
+          <h3>98%</h3>
+          <p>Satisfaction Rate</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-chart-bar"></i>
+        </div>
+        <div class="stat-content">
+          <h3>{{ ratingDistribution[4].count || 0 }}</h3>
+          <p>5-Star Reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating Distribution Chart -->
+    <div class="rating-distribution">
+      <h3>Rating Distribution</h3>
+      <div class="distribution-bars">
+        <div *ngFor="let dist of ratingDistribution" class="rating-bar">
+          <label>{{ dist.rating }}★</label>
+          <div class="bar-container">
+            <div class="bar-fill" 
+                 [style.width]="(dist.count / (totalFeedbacks || 1) * 100) + '%'"
+                 [attr.data-count]="dist.count">
+            </div>
+          </div>
+          <span class="bar-count">{{ dist.count }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-section">
+      <div class="filter-section">
+        <label for="serviceFilter">Filter by Service:</label>
+        <select id="serviceFilter" 
+                [(ngModel)]="filterService"
+                (change)="onFilterChange()">
+          <option *ngFor="let service of services" [value]="service === 'All Services' ? '' : service">
+            {{ service }}
+          </option>
+        </select>
+      </div>
+
+      <div class="sort-section">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy" 
+                [(ngModel)]="sortBy"
+                (change)="onSortChange()">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="highest-rating">Highest Rating</option>
+          <option value="lowest-rating">Lowest Rating</option>
+        </select>
+      </div>
+
+      <button class="export-btn" (click)="exportFeedbacks()">
+        <i class="fas fa-download"></i>
+        Export to CSV
+      </button>
+    </div>
+
+    <!-- Feedbacks List -->
+    <div class="feedbacks-list">
+      <div *ngIf="displayedFeedbacks.length === 0" class="no-feedbacks">
+        <i class="fas fa-inbox"></i>
+        <p>No feedbacks found</p>
+      </div>
+
+      <div *ngFor="let feedback of displayedFeedbacks" class="feedback-item">
+        <div class="feedback-header">
+          <div class="feedback-user">
+            <div class="user-avatar">
+              {{ feedback.customerName.substring(0, 2).toUpperCase() }}
+            </div>
+            <div class="user-info">
+              <h4>{{ feedback.customerName }}</h4>
+              <p>{{ feedback.service }}</p>
+            </div>
+          </div>
+
+          <div class="feedback-meta">
+            <div class="rating-display">
+              <i *ngFor="let star of getStarArray(feedback.rating)" class="fas fa-star"></i>
+              <span class="rating-value">{{ feedback.rating }}/5</span>
+            </div>
+            <time class="feedback-date">{{ feedback.date | date:'MMM d, y' }}</time>
+          </div>
+        </div>
+
+        <div class="feedback-content">
+          <p>{{ feedback.message }}</p>
+        </div>
+
+        <div class="feedback-footer">
+          <a [href]="'mailto:' + feedback.email" class="email-link">
+            <i class="fas fa-envelope"></i>
+            {{ feedback.email }}
+          </a>
+          <button class="delete-btn" 
+                  (click)="deleteFeedback(feedback.id)"
+                  [title]="'Delete feedback from ' + feedback.customerName">
+            <i class="fas fa-trash-alt"></i>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" *ngIf="getTotalPages() > 1">
+      <button [disabled]="currentPage === 1" 
+              (click)="goToPage(currentPage - 1)"
+              class="pagination-btn">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button *ngFor="let page of [].constructor(getTotalPages()); let i = index"
+              [class.active]="currentPage === i + 1"
+              (click)="goToPage(i + 1)"
+              class="pagination-btn page-btn">
+        {{ i + 1 }}
+      </button>
+
+      <button [disabled]="currentPage === getTotalPages()" 
+              (click)="goToPage(currentPage + 1)"
+              class="pagination-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

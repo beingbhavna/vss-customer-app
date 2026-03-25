@@ -1,0 +1,56 @@
+<section id="services" class="services-section" #servicesSection>
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h2 class="section-title fadeInUp" data-animate>Our Services</h2>
+      <div style="height: 2px; width: 100px; background: linear-gradient(90deg, #667eea, #764ba2); margin: 20px auto 0;"></div>
+    </div>
+    <p class="section-subtitle fadeInUp" data-animate>
+      We provide complete electrical and electronic solutions for residential, commercial and industrial projects.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card zoomInUp" *ngFor="let service of services" data-animate>
+
+        <div class="icon-box">
+          <i [class]="service.icon"></i>
+        </div>
+
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+
+        <button (click)="openModal(service)" class="btn">
+          View Details
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" [ngClass]="{'closing': isClosingModal}" *ngIf="selectedService || isClosingModal" (click)="onModalOverlayClick($event)">
+
+    <div class="modal-box popIn" [ngClass]="{'closing': isClosingModal}" (click)="$event.stopPropagation()">
+
+      <span class="close-btn" (click)="closeModal()" title="Close (Press ESC)">✖</span>
+
+      <h2>{{ selectedService?.title }}</h2>
+
+      <ul>
+        <li *ngFor="let item of selectedService?.details?.items" class="modal-item">
+          ✔ {{ item }}
+        </li>
+      </ul>
+
+      <p class="price" *ngIf="selectedService?.details?.priceRange">
+        <strong>Price:</strong> {{ selectedService?.details?.priceRange }}
+      </p>
+
+      <button class="btn" (click)="closeModal()">Close</button>
+
+    </div>
+
+  </div>
+</section>

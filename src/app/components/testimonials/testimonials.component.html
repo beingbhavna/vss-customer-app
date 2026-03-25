@@ -1,0 +1,72 @@
+<section id="testimonials" class="testimonials" #testimonialsSection (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <div class="container">
+    <h2 class="section-title fadeInDown" data-animate>What Our Clients Say</h2>
+    <p class="section-subtitle fadeInUp" data-animate>Real experiences from satisfied customers</p>
+    
+    <!-- Testimonial Carousel -->
+    <div class="testimonials-carousel">
+      <div class="carousel-container">
+        <div *ngFor="let item of allTestimonials; let i = index" 
+             class="testimonial-card" 
+             [class.active]="i === currentSlide">
+          <div class="card-content">
+            <div class="stars">
+              <i *ngFor="let star of getStarArray(item.rating)" class="fas fa-star star-anim"></i>
+            </div>
+            
+            <p class="testimonial-text">
+              "{{ isFeedback(item) ? item.message : item.text }}"
+            </p>
+            
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                {{ isFeedback(item) ? item.customerName.substring(0, 2).toUpperCase() : item.avatar }}
+              </div>
+              <div>
+                <h4>{{ isFeedback(item) ? item.customerName : item.author }}</h4>
+                <p>{{ isFeedback(item) ? item.service : item.role }}</p>
+                <small class="feedback-date" *ngIf="isFeedback(item)">
+                  {{ item.date | date:'MMM d, y' }}
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button class="carousel-arrow arrow-prev" (click)="prevSlide()" aria-label="Previous testimonial">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="carousel-arrow arrow-next" (click)="nextSlide()" aria-label="Next testimonial">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Slide Indicators -->
+      <div class="testimonial-indicators">
+        <button *ngFor="let item of allTestimonials; let i = index"
+                class="indicator"
+                [class.active]="i === currentSlide"
+                (click)="goToSlide(i)"
+                [attr.aria-label]="'Go to testimonial ' + (i + 1)">
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="testimonial-stats">
+      <div class="stat-box fadeInUp" data-animate>
+        <h3>{{ allTestimonials.length }}+</h3>
+        <p>Customer Reviews</p>
+      </div>
+      <div class="stat-box fadeInUp" data-animate>
+        <h3>{{ (allTestimonials | slice:0:5).length }}/5</h3>
+        <p>Average Rating</p>
+      </div>
+      <div class="stat-box fadeInUp" data-animate>
+        <h3>98%</h3>
+        <p>Satisfaction Rate</p>
+      </div>
+    </div>
+  </div>
+</section>

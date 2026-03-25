@@ -1,0 +1,18 @@
+<section id="blog" class="blog" #blogSection>
+  <div class="container">
+    <h2 class="section-title fadeInUp" data-animate>Latest Blog Posts</h2>
+    <p class="section-subtitle fadeInUp" data-animate>Stay updated with tips and insights</p>
+
+    <div class="blog-grid">
+      <article *ngFor="let post of blogPosts" class="blog-card zoomInUp" data-animate>
+        <div class="blog-image">
+          <i [ngClass]="post.icon"></i>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p class="blog-date">{{ post.date }}</p>
+        <p class="blog-excerpt">{{ post.excerpt }}</p>
+        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+<section id="feedback" class="feedback-section">
+  <div class="container">
+    <h2 class="section-title">Share Your Feedback</h2>
+    <p class="section-subtitle">Help us improve by sharing your experience with our services</p>
+
+    <div class="feedback-container">
+      <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="feedback-form">
+        <div *ngIf="successMessage" class="alert alert-success">
+          <i class="fas fa-check-circle"></i>
+          {{ successMessage }}
+        </div>
+
+        <div *ngIf="errorMessage" class="alert alert-error">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ errorMessage }}
+        </div>
+
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="customerName">Your Name</label>
+          <input id="customerName" type="text" placeholder="Enter your full name" formControlName="customerName"
+            [disabled]="isLoading" [class.is-invalid]="submitted && f['customerName'].errors">
+          <small *ngIf="submitted && f['customerName'].errors" class="error-text">
+            <span *ngIf="f['customerName'].errors['required']">Name is required</span>
+            <span *ngIf="f['customerName'].errors['minlength']">Name must be at least 2 characters</span>
+          </small>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input id="email" type="email" placeholder="Enter your email address" formControlName="email"
+            [disabled]="isLoading" [class.is-invalid]="submitted && f['email'].errors">
+          <small *ngIf="submitted && f['email'].errors" class="error-text">
+            <span *ngIf="f['email'].errors['required']">Email is required</span>
+            <span *ngIf="f['email'].errors['email']">Please enter a valid email</span>
+          </small>
+        </div>
+
+        <!-- Service Selection -->
+        <div class="form-group">
+          <label for="service">Service Used</label>
+          <select id="service" formControlName="service" [disabled]="isLoading"
+            [class.is-invalid]="submitted && f['service'].errors">
+            <option value="">-- Select a service --</option>
+            <option *ngFor="let svc of services" [value]="svc">{{ svc }}</option>
+          </select>
+          <small *ngIf="submitted && f['service'].errors" class="error-text">
+            Please select a service
+          </small>
+        </div>
+
+        <!-- Rating Selection -->
+        <div class="form-group">
+          <label>Rate Your Experience</label>
+          <div class="rating-selector">
+            <div *ngFor="let i of [1, 2, 3, 4, 5]" class="star-wrapper" (mouseenter)="hoverRating = i"
+              (mouseleave)="hoverRating = 0">
+              <button type="button" class="star-btn" [disabled]="isLoading"
+                [class.filled]="i <= (hoverRating || selectedRating)" (click)="setRating(i)"
+                [attr.aria-label]="'Rate ' + i + ' stars'">
+                <i class="fas fa-star"></i>
+              </button>
+            </div>
+            <span class="rating-text" *ngIf="selectedRating > 0">
+              {{ selectedRating }} out of 5 stars
+            </span>
+          </div>
+          <small *ngIf="submitted && f['rating'].errors" class="error-text">
+            Please select a rating
+          </small>
+        </div>
+
+        <!-- Message Field -->
+        <div class="form-group">
+          <label for="message">Your Feedback</label>
+          <textarea id="message" placeholder="Share your experience and suggestions (Minimum 10 characters)" rows="5"
+            formControlName="message" [disabled]="isLoading"
+            [class.is-invalid]="submitted && f['message'].errors"></textarea>
+          <small class="char-count">
+            {{ feedbackForm.get('message')?.value?.length || 0 }}/500 characters
+          </small>
+          <small *ngIf="submitted && f['message'].errors" class="error-text">
+            <span *ngIf="f['message'].errors['required']">Feedback is required</span>
+            <span *ngIf="f['message'].errors['minlength']">Feedback must be at least 10 characters</span>
+          </small>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn" [disabled]="isLoading">
+          <i *ngIf="!isLoading" class="fas fa-paper-plane"></i>
+          <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+          {{ isLoading ? 'Submitting...' : 'Submit Feedback' }}
+        </button>
+      </form>
+
+      <!-- Info Box -->
+      <div class="feedback-info">
+        <h3>Why Your Feedback Matters</h3>
+        <div class="info-item">
+          <i class="fas fa-lightbulb"></i>
+          <div>
+            <h4>Helps Us Improve</h4>
+            <p>Your suggestions help us enhance our services</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4>Builds Community</h4>
+            <p>Your experience guides other customers</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-award"></i>
+          <div>
+            <h4>Rewards Excellence</h4>
+            <p>Top reviewers get special recognition</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

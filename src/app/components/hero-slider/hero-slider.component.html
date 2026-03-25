@@ -1,0 +1,40 @@
+<section id="home" class="hero-slider" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <!-- Logo Background -->
+  <div class="logo-display">
+    <img src="assets/images/logo.jpg" alt="PowerElectric Logo" class="hero-logo float-anim">
+  </div>
+
+  <div class="slides-container">
+    <div *ngFor="let slide of slides; let i = index" 
+         class="slide" 
+         [class.active]="i === currentSlide"
+         [attr.data-slide]="i"
+         [style.backgroundImage]="'url(' + slide.image + ')'">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <h1 class="slide-title popIn">{{ slide.title }}</h1>
+        <p class="slide-subtitle fadeInUp">{{ slide.subtitle }}</p>
+        <button class="cta-btn bounce-anim">{{ slide.cta }}</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="arrow arrow-prev fadeInLeft" (click)="prevSlide()" aria-label="Previous slide">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="arrow arrow-next fadeInRight" (click)="nextSlide()" aria-label="Next slide">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <!-- Slide Indicators -->
+  <div class="slide-indicators fadeInUp">
+    <button *ngFor="let slide of slides; let i = index"
+            class="indicator"
+            [class.active]="i === currentSlide"
+            (click)="goToSlide(i)"
+            [attr.aria-label]="'Go to slide ' + (i + 1)">
+    </button>
+  </div>
+</section>
+<app-testimonials></app-testimonials>

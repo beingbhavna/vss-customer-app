@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSS-Enterprise</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>PowerElectric</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="electric-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="spark">⚡</span>
+                Professional Electrical Solutions
+                <span class="spark">⚡</span>
+            </h1>
+            <p class="hero-subtitle">Powering Your Future with Excellence & Innovation</p>
+            <button class="cta-btn">Get Started Today</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive electrical solutions for residential & commercial</p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-service="1">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Electric & Electronic Contracting</h3>
+                    <p>Expert installation and configuration of electrical and electronic systems</p>
+                    <div class="service-details" id="service-1">
+                        <h4>Service Details</h4>
+                        <ul>
+                            <li>Complete electrical system design and planning</li>
+                            <li>High-voltage and low-voltage installation</li>
+                            <li>Electronic component integration</li>
+                            <li>Industrial control systems setup</li>
+                            <li>Safety compliance certification</li>
+                        </ul>
+                        <p><strong>Price Range:</strong> Quote based on project scope</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card" data-service="2">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Electrical Installation</h3>
+                    <p>Professional installation services for all types of electrical systems</p>
+                    <div class="service-details" id="service-2">
+                        <h4>Service Details</h4>
+                        <ul>
+                            <li>Wiring and distribution systems</li>
+                            <li>Panel installation and upgrades</li>
+                            <li>Lighting system installation</li>
+                            <li>Solar panel installation</li>
+                            <li>Emergency backup systems</li>
+                        </ul>
+                        <p><strong>Price Range:</strong> ₹50,000 - ₹5,00,000</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card" data-service="3">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Electrical Maintenance</h3>
+                    <p>Regular maintenance to ensure optimal performance and safety</p>
+                    <div class="service-details" id="service-3">
+                        <h4>Service Details</h4>
+                        <ul>
+                            <li>Preventive maintenance programs</li>
+                            <li>Routine inspections and testing</li>
+                            <li>Equipment servicing</li>
+                            <li>Safety audits</li>
+                            <li>24/7 emergency response</li>
+                        </ul>
+                        <p><strong>Price Range:</strong> ₹5,000 - ₹50,000/month</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card" data-service="4">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Electrical Repair & Troubleshooting</h3>
+                    <p>Quick diagnosis and repair of electrical faults and issues</p>
+                    <div class="service-details" id="service-4">
+                        <h4>Service Details</h4>
+                        <ul>
+                            <li>Fault detection and diagnosis</li>
+                            <li>Rapid repair services</li>
+                            <li>Circuit breaker replacement</li>
+                            <li>Electrical appliance repair</li>
+                            <li>Emergency service available</li>
+                        </ul>
+                        <p><strong>Price Range:</strong> ₹1,000 - ₹10,000 per visit</p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card" data-service="5">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Automation Systems</h3>
+                    <p>Smart electrical solutions for modern homes</p>
+                    <div class="service-details" id="service-5">
+                        <h4>Service Details</h4>
+                        <ul>
+                            <li>Smart lighting control</li>
+                            <li>Energy management systems</li>
+                            <li>Security system integration</li>
+                            <li>Voice-controlled automation</li>
+                            <li>Mobile app control</li>
+                        </ul>
+                        <p><strong>Price Range:</strong> ₹1,00,000 - ₹10,00,000</p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card" data-service="6">
+                    <div class="service-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industrial Electrical Solutions</h3>
+                    <p>Specialized solutions for industrial and commercial facilities</p>
+                    <div class="service-details" id="service-6">
+                        <h4>Service Details</h4>
+                        <ul>
+                            <li>Power distribution systems</li>
+                            <li>Motor control centers</li>
+                            <li>Industrial safety systems</li>
+                            <li>Three-phase electrical installation</li>
+                            <li>Machinery integration</li>
+                        </ul>
+                        <p><strong>Price Range:</strong> Custom quote required</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>PowerElectric is a leading electrical services company with over 15 years of experience in providing comprehensive electrical solutions to residential, commercial, and industrial clients across the region.</p>
+                    <p>Our team of certified and experienced electricians is dedicated to delivering high-quality services with a focus on safety, reliability, and customer satisfaction.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Licensed & Certified Professionals</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>15+ Years of Experience</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 Emergency Support</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quality Guaranteed Work</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h4>5000+</h4>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>50+</h4>
+                        <p>Experienced Technicians</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>98%</h4>
+                        <p>Customer Satisfaction</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>24/7</h4>
+                        <p>Support Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Excellent service! The team was professional, punctual, and completed the entire electrical installation for our new office. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div>
+                            <h4>Rajesh Kumar</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"PowerElectric fixed our electrical issues within hours. Their emergency response team is amazing. We trust them completely!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PM</div>
+                        <div>
+                            <h4>Priya Mishra</h4>
+                            <p>Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The home automation system they installed is fantastic! Everything works smoothly and the support team is always helpful."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div>
+                            <h4>Arun Singh</h4>
+                            <p>Tech Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Energy Saving Tips for Your Home</h3>
+                    <p class="blog-date">March 10, 2026</p>
+                    <p class="blog-excerpt">Discover practical ways to reduce your electricity consumption and save money on your monthly bills with simple adjustments.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Benefits of Solar Panel Installation</h3>
+                    <p class="blog-date">March 8, 2026</p>
+                    <p class="blog-excerpt">Learn about the advantages of switching to solar energy, including cost savings, environmental benefits, and government incentives.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Electrical Safety: What Every Home Should Know</h3>
+                    <p class="blog-date">March 5, 2026</p>
+                    <p class="blog-excerpt">Essential electrical safety tips to protect your family and property. Learn about common hazards and how to prevent them.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210</p>
+                        <p>+91 98765 43211</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>info@powerelectric.com</p>
+                        <p>support@powerelectric.com</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Address</h4>
+                        <p>123 Electric Avenue</p>
+                        <p>New Delhi, India - 110001</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Working Hours</h4>
+                        <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        <p>24/7 Emergency Service</p>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <select required>
+                        <option value="">Select Service</option>
+                        <option value="installation">Electrical Installation</option>
+                        <option value="maintenance">Electrical Maintenance</option>
+                        <option value="repair">Repair & Troubleshooting</option>
+                        <option value="automation">Home Automation</option>
+                        <option value="industrial">Industrial Solutions</option>
+                    </select>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-bolt"></i> PowerElectric</h3>
+                    <p>Your trusted partner for all electrical needs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PowerElectric. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

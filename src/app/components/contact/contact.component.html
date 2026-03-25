@@ -1,0 +1,129 @@
+<section id="contact" class="contact" #contactSection>
+  <div class="container">
+    <h2 class="section-title fadeInUp" data-animate>Get in Touch</h2>
+    <p class="section-subtitle fadeInUp" data-animate>We'd love to hear from you. Get in touch with us today!</p>
+
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="info-card fadeInLeft" data-animate>
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h4>Phone</h4>
+          <p>+91 9454445071</p>
+        </div>
+
+        <div class="info-card fadeInLeft" data-animate>
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h4>Email</h4>
+          <p>vss.electricsenterprises&#64;gmail.com</p>
+        </div>
+
+        <div class="info-card fadeInLeft" data-animate>
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h4>Address</h4>
+          <p>Plot No. 11, Rudra Vihar Colony</p>
+          <p>Varansi,U.P., India - 221002</p>
+        </div>
+
+        <div class="info-card fadeInLeft" data-animate>
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h4>Working Hours</h4>
+          <p>Mon - Sun: 9:00 AM - 7:00 PM</p>
+          <p>24/7 Emergency Service</p>
+        </div>
+      </div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form fadeInRight" data-animate>
+        <h3>Send us a Message</h3>
+
+        <div *ngIf="successMessage" class="alert alert-success slideInDown">
+          <i class="fas fa-check-circle"></i>
+          {{ successMessage }}
+        </div>
+
+        <div *ngIf="errorMessage" class="alert alert-error slideInDown">
+          <i class="fas fa-exclamation-circle"></i>
+          {{ errorMessage }}
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="text" 
+            placeholder="Your Name" 
+            formControlName="name"
+            [disabled]="isLoading"
+            [class.is-invalid]="submitted && f['name'].errors">
+          <small *ngIf="submitted && f['name'].errors" class="error-text">
+            <span *ngIf="f['name'].errors['required']">Name is required</span>
+            <span *ngIf="f['name'].errors['minlength']">Name must be at least 2 characters</span>
+          </small>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="email" 
+            placeholder="Your Email" 
+            formControlName="email"
+            [disabled]="isLoading"
+            [class.is-invalid]="submitted && f['email'].errors">
+          <small *ngIf="submitted && f['email'].errors" class="error-text">
+            <span *ngIf="f['email'].errors['required']">Email is required</span>
+            <span *ngIf="f['email'].errors['email']">Please enter a valid email</span>
+          </small>
+        </div>
+
+        <div class="form-group">
+          <input 
+            type="tel" 
+            placeholder="Phone Number" 
+            formControlName="phone"
+            [disabled]="isLoading"
+            [class.is-invalid]="submitted && f['phone'].errors">
+          <small *ngIf="submitted && f['phone'].errors" class="error-text">
+            Please enter a valid phone number
+          </small>
+        </div>
+
+        <div class="form-group">
+          <select formControlName="service" [disabled]="isLoading" [class.is-invalid]="submitted && f['service'].errors">
+            <option value="">Select Service</option>
+            <option value="installation">Electrical Installation</option>
+            <option value="maintenance">Electrical Maintenance</option>
+            <option value="repair">Repair & Troubleshooting</option>
+            <option value="automation">Home Automation</option>
+            <option value="industrial">Industrial Solutions</option>
+          </select>
+          <small *ngIf="submitted && f['service'].errors" class="error-text">
+            Please select a service
+          </small>
+        </div>
+
+        <div class="form-group">
+          <textarea 
+            placeholder="Your Message" 
+            rows="5" 
+            formControlName="message"
+            [disabled]="isLoading"
+            [class.is-invalid]="submitted && f['message'].errors"></textarea>
+          <small *ngIf="submitted && f['message'].errors" class="error-text">
+            <span *ngIf="f['message'].errors['required']">Message is required</span>
+            <span *ngIf="f['message'].errors['minlength']">Message must be at least 10 characters</span>
+          </small>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="isLoading">
+          <i *ngIf="!isLoading" class="fas fa-paper-plane"></i>
+          <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+          {{ isLoading ? 'Sending...' : 'Send Message' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
