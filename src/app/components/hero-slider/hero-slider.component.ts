@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { SeoService } from '../../services/seo.service';
 
 interface Slide {
   id: number;
@@ -48,11 +49,22 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   currentSlide = 0;
   autoSlideInterval: any;
 
+  constructor(private seoService: SeoService) {}
+
   ngOnInit() {
+    // Set SEO tags for home page
+    this.seoService.updateSeoTags({
+      title: 'Home - Professional Electrical Solutions',
+      description: 'Welcome to PowerElectric - Your trusted partner for professional electrical solutions. Powering your future with excellence and innovation.',
+      keywords: 'electrical services, electrical installation, professional electrical solutions, home automation, industrial solutions',
+      image: 'https://www.powerelectric.com/assets/images/slides/5.png',
+      url: '/#/home'
+    });
+
+    // Start auto slide
     this.autoSlideInterval = setInterval(() => {
       this.startAutoSlide();
     }, 2000); // Change slide every 2 seconds
-
   }
 
   ngOnDestroy() {
@@ -87,3 +99,4 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
     this.startAutoSlide();
   }
 }
+

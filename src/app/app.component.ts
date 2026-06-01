@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from './services/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -7,26 +7,21 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'VSS-Enterprise';
+  title = 'PowerElectric';
 
-  constructor(
-    private metaService: Meta,
-    private titleService: Title
-  ) {}
+  constructor(private seoService: SeoService) {}
 
   ngOnInit() {
-    // Set page title
-    this.titleService.setTitle('VSS-Enterprise');
+    // Set default SEO tags for home page
+    this.seoService.updateSeoTags({
+      title: 'Home',
+      description: 'PowerElectric provides professional electrical solutions for residential, commercial, and industrial clients. Expert installation, maintenance, and repair services available 24/7.',
+      keywords: 'electrical services, electrical installation, electrical repair, home automation, solar panels, industrial solutions',
+      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      url: '/#/home'
+    });
 
-    // Set meta tags for SEO
-    this.metaService.updateTag({ name: 'description', content: 'PowerElectric provides professional electrical solutions for residential, commercial, and industrial clients. Expert installation, maintenance, and repair services.' });
-    this.metaService.updateTag({ name: 'keywords', content: 'electrical services, electrical installation, electrical repair, home automation, solar panels, industrial solutions' });
-    this.metaService.updateTag({ name: 'author', content: 'PowerElectric' });
-    this.metaService.updateTag({ name: 'viewport', content: 'width=device-width, initial-scale=1.0' });
-    
-    // Open Graph meta tags
-    this.metaService.updateTag({ property: 'og:title', content: 'VSS-Enterprise' });
-    this.metaService.updateTag({ property: 'og:description', content: 'Expert electrical services for all your needs' });
-    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    // Add organization schema
+    this.seoService.createSchema(this.seoService.getOrganizationSchema());
   }
 }

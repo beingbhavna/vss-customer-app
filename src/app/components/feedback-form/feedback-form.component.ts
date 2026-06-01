@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FeedbackService } from '../../services/feedback.service';
 import { EmailService } from '../../services/email.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-feedback-form',
@@ -28,6 +29,7 @@ export class FeedbackFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private seoService: SeoService,
     private feedbackService: FeedbackService,
     private emailService: EmailService
   ) {
@@ -40,7 +42,16 @@ export class FeedbackFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Set SEO tags for feedback page
+    this.seoService.updateSeoTags({
+      title: 'Share Your Feedback',
+      description: 'Help us improve! Share your feedback and experience with PowerElectric services. Your reviews help us serve better.',
+      keywords: 'feedback, review, rating, customer feedback, testimonial',
+      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      url: '/#/feedback-form'
+    });
+  }
 
   setRating(rating: number) {
     this.selectedRating = rating;

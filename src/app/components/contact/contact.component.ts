@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailService } from '../../services/email.service';
 import { AnimationService } from '../../services/animation.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -20,7 +21,8 @@ export class ContactComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private emailService: EmailService,
-    private animationService: AnimationService
+    private animationService: AnimationService,
+    private seoService: SeoService
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -32,6 +34,15 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Set SEO tags for contact page
+    this.seoService.updateSeoTags({
+      title: 'Contact Us',
+      description: 'Get in touch with PowerElectric. Reach out to our team for electrical services, inquiries, or support. Fast response guaranteed.',
+      keywords: 'contact, electrical services, get in touch, support, inquiries',
+      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      url: '/#/contact'
+    });
+
     // Delay to ensure DOM is rendered
     setTimeout(() => {
       const infoCards = document.querySelectorAll('.info-card');

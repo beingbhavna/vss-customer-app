@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedbackService, Feedback } from '../../services/feedback.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-feedback-dashboard',
@@ -28,9 +29,18 @@ export class FeedbackDashboardComponent implements OnInit {
     'Electric & Electronic Contracting'
   ];
 
-  constructor(private feedbackService: FeedbackService) {}
+  constructor(private feedbackService: FeedbackService, private seoService: SeoService) {}
 
   ngOnInit() {
+    // Set SEO tags for feedback dashboard page
+    this.seoService.updateSeoTags({
+      title: 'Feedback Dashboard',
+      description: 'View detailed feedback analytics and customer reviews. See real testimonials and ratings from our valued clients.',
+      keywords: 'feedback dashboard, analytics, reviews, testimonials, customer ratings, performance',
+      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      url: '/#/feedback-dashboard'
+    });
+
     this.loadFeedbacks();
   }
 

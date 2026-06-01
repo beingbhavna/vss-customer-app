@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { DataService, Testimonial } from '../../services/data.service';
 import { FeedbackService, Feedback } from '../../services/feedback.service';
 import { AnimationService } from '../../services/animation.service';
+import { SeoService } from '../../services/seo.service';
 
 interface CombinedTestimonial extends Testimonial {
   isFeedback?: boolean;
@@ -27,10 +28,20 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
   constructor(
     private dataService: DataService,
     private feedbackService: FeedbackService,
-    private animationService: AnimationService
+    private animationService: AnimationService,
+    private seoService: SeoService
   ) { }
 
   ngOnInit() {
+    // Set SEO tags for testimonials page
+    this.seoService.updateSeoTags({
+      title: 'Testimonials & Reviews',
+      description: 'Read what our satisfied clients say about PowerElectric services. Discover real testimonials from residential, commercial, and industrial customers.',
+      keywords: 'testimonials, reviews, client feedback, customer reviews, electrical services reviews',
+      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      url: '/#/testimonials'
+    });
+
     // Combine testimonials and recent feedbacks
     const testimonials = this.dataService.getTestimonials();
     const feedbacks = this.feedbackService.getAllFeedbacks();

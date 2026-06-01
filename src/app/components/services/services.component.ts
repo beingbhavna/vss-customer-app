@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { DataService, Service } from '../../services/data.service';
 import { AnimationService } from '../../services/animation.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-services',
@@ -17,10 +18,20 @@ export class ServicesComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private animationService: AnimationService
+    private animationService: AnimationService,
+    private seoService: SeoService
   ) {}
 
   ngOnInit() {
+    // Set SEO tags for services page
+    this.seoService.updateSeoTags({
+      title: 'Our Services',
+      description: 'Explore PowerElectric comprehensive electrical services including installation, maintenance, repairs, home automation, and solar solutions for residential and commercial needs.',
+      keywords: 'electrical services, installation, maintenance, repairs, home automation, solar panels, commercial electrical, industrial solutions',
+      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      url: '/#/services'
+    });
+
     this.services = this.dataService.getServices();
     
     // Delay to ensure DOM is rendered
