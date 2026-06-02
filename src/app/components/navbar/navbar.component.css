@@ -106,20 +106,20 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: white;
-  color: #25D366;
+  background: #25D366;
+  color: white;
   border-radius: 50%;
   font-size: 24px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.5);
 }
 
 .whatsapp-header:hover {
-  background: #25D366;
+  background: #1ebe5d;
   color: white;
   transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.7);
 }
 
 /* WHATSAPP FLOAT BUTTON */
