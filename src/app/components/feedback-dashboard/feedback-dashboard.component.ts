@@ -37,7 +37,7 @@ export class FeedbackDashboardComponent implements OnInit {
       title: 'Feedback Dashboard',
       description: 'View detailed feedback analytics and customer reviews. See real testimonials and ratings from our valued clients.',
       keywords: 'feedback dashboard, analytics, reviews, testimonials, customer ratings, performance',
-      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/#/feedback-dashboard'
     });
 

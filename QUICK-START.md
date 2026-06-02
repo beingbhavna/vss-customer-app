@@ -1,4 +1,4 @@
-# Quick Start Guide - PowerElectric Angular 18
+# Quick Start Guide - VSSEnterprises Angular 18
 
 ## 🚀 Getting Started in 5 Minutes
 
@@ -172,4 +172,4 @@ Before going live:
 
 ---
 
-**Ready to launch?** Go ahead and deploy your PowerElectric website! 🎉
+**Ready to launch?** Go ahead and deploy your VSSEnterprises website! 🎉

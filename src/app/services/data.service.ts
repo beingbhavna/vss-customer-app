@@ -290,7 +290,7 @@ export class DataService {
       },
       {
         id: 2,
-        text: 'PowerElectric fixed our electrical issues within hours. Their emergency response team is amazing. We trust them completely!',
+        text: 'VSSEnterprises fixed our electrical issues within hours. Their emergency response team is amazing. We trust them completely!',
         author: 'Priya Mishra',
         role: 'Homeowner',
         avatar: 'PM',

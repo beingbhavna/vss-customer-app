@@ -145,3 +145,129 @@
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+
+/* Tablet & Smaller Desktops (1024px and below) */
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 15px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .logo img {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+/* Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
+  }
+  
+  .nav-container {
+    padding: 0 15px;
+  }
+  
+  .logo {
+    font-size: 16px;
+    gap: 8px;
+  }
+  
+  .logo img {
+    height: 50px;
+    width: 50px;
+  }
+
+  /* Show Hamburger Menu */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide Desktop Menu */
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    gap: 0;
+    padding: 20px 0;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    z-index: 998;
+  }
+
+  /* Show Mobile Menu When Active */
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 15px 0;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Smaller WhatsApp Header on Mobile */
+  .whatsapp-header {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  /* Adjust WhatsApp Float Button for Mobile */
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 26px;
+  }
+}
+
+/* Small Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 10px;
+  }
+
+  .logo {
+    font-size: 14px;
+    gap: 5px;
+  }
+
+  .logo img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+  }
+
+  .nav-menu {
+    top: 70px;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}

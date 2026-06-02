@@ -1,4 +1,4 @@
-# PowerElectric - Installation & Run Instructions
+# VSSEnterprises - Installation & Run Instructions
 
 ## 🚀 Start Here!
 
@@ -127,7 +127,7 @@ Open your web browser and go to:
 http://localhost:4200/
 ```
 
-You should see your PowerElectric website!
+You should see your VSSEnterprises website!
 
 ---
 
@@ -140,7 +140,7 @@ Edit: `src/app/components/contact/contact.component.html`
 Replace:
 ```
 +91 98765 43210
-info@powerelectric.com
+vss.electricsenterprises@gmail.com
 123 Electric Avenue, New Delhi, India
 ```
 
@@ -336,7 +336,7 @@ If you encounter issues:
 
 ## 🚀 You're Ready!
 
-Your PowerElectric Angular 18 website is ready to go!
+Your VSSEnterprises Angular 18 website is ready to go!
 
 ### Quick Command Reference
 

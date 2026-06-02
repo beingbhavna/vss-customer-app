@@ -15,8 +15,8 @@ export interface SeoData {
   providedIn: 'root'
 })
 export class SeoService {
-  private baseUrl = 'https://www.powerelectric.com'; // Update with your domain
-  private defaultImage = 'https://www.powerelectric.com/assets/images/logo.jpg'; // Update with your domain
+  private baseUrl = 'https://www.VSSEnterprises.com'; // Update with your domain
+  private defaultImage = 'https://www.VSSEnterprises.com/assets/images/logo.jpg'; // Update with your domain
 
   constructor(
     private metaService: Meta,
@@ -28,7 +28,7 @@ export class SeoService {
    */
   updateSeoTags(data: SeoData): void {
     // Title
-    const fullTitle = `${data.title} | PowerElectric`;
+    const fullTitle = `${data.title} | VSSEnterprises`;
     this.titleService.setTitle(fullTitle);
 
     // Meta Tags
@@ -36,7 +36,7 @@ export class SeoService {
     if (data.keywords) {
       this.updateMetaTag('keywords', data.keywords);
     }
-    this.updateMetaTag('author', data.author || 'PowerElectric');
+    this.updateMetaTag('author', data.author || 'VSSEnterprises');
 
     // Canonical URL
     const canonicalUrl = data.url ? `${this.baseUrl}${data.url}` : this.baseUrl;
@@ -129,13 +129,13 @@ export class SeoService {
     return {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      'name': 'PowerElectric',
+      'name': 'VSSEnterprises',
       'description': 'Professional electrical services for residential, commercial, and industrial clients',
       'url': this.baseUrl,
       'logo': this.defaultImage,
       'image': this.defaultImage,
       'telephone': '+91-9454445071',
-      'email': 'info@powerelectric.com',
+      'email': 'vss.electricsenterprises@gmail.com',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': 'Your Street Address',
@@ -150,9 +150,9 @@ export class SeoService {
         'longitude': '0.0'
       },
       'sameAs': [
-        'https://www.facebook.com/powerelectric',
-        'https://twitter.com/powerelectric',
-        'https://www.linkedin.com/company/powerelectric',
+        'https://www.facebook.com/VSSEnterprises',
+        'https://twitter.com/VSSEnterprises',
+        'https://www.linkedin.com/company/VSSEnterprises',
         'https://wa.me/919454445071'
       ],
       'openingHoursSpecification': {
@@ -175,7 +175,7 @@ export class SeoService {
       'description': description,
       'provider': {
         '@type': 'LocalBusiness',
-        'name': 'PowerElectric',
+        'name': 'VSSEnterprises',
         'url': this.baseUrl
       },
       'areaServed': {
@@ -222,11 +222,11 @@ export class SeoService {
       'dateModified': article.dateModified || article.datePublished,
       'author': {
         '@type': 'Person',
-        'name': article.author || 'PowerElectric Team'
+        'name': article.author || 'VSSEnterprises Team'
       },
       'publisher': {
         '@type': 'Organization',
-        'name': 'PowerElectric',
+        'name': 'VSSEnterprises',
         'logo': this.defaultImage
       }
     };

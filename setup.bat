@@ -1,7 +1,7 @@
 @echo off
-REM PowerElectric Setup Script for Windows
+REM VSSEnterprises Setup Script for Windows
 
-echo Setting up PowerElectric Angular 18 Project...
+echo Setting up VSSEnterprises Angular 18 Project...
 echo.
 
 REM Check if Node.js is installed

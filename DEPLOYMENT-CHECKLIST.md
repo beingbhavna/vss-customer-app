@@ -1,4 +1,4 @@
-# PowerElectric Website - Deployment Checklist
+# VSSEnterprises Website - Deployment Checklist
 
 ## Pre-Deployment Checklist
 

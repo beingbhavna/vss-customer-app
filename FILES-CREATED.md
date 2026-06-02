@@ -1,4 +1,4 @@
-# PowerElectric Angular 18 - Complete File Structure
+# VSSEnterprises Angular 18 - Complete File Structure
 
 ## 📦 Complete Project Files Created
 

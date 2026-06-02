@@ -1,6 +1,6 @@
-# PowerElectric - Angular 18 Project
+# VSSEnterprises - Angular 18 Project
 
-A modern, professional website for PowerElectric - a leading electrical services company. Built with Angular 18, featuring attractive image slides, SEO optimization, and responsive design.
+A modern, professional website for VSSEnterprises - a leading electrical services company. Built with Angular 18, featuring attractive image slides, SEO optimization, and responsive design.
 
 ## Features
 
@@ -317,14 +317,14 @@ For improvements and additions:
 
 ## License
 
-Copyright © 2026 PowerElectric. All rights reserved.
+Copyright © 2026 VSSEnterprises. All rights reserved.
 
 ## Support
 
 For support and inquiries:
-- Email: info@powerelectric.com
+- Email: vss.electricsenterprises@gmail.com
 - Phone: +91 98765 43210
-- Website: www.powerelectric.com
+- Website: www.VSSEnterprises.com
 
 ## Future Enhancements
 

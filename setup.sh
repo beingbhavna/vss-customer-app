@@ -1,7 +1,7 @@
 #!/bin/bash
-# PowerElectric Setup Script
+# VSSEnterprises Setup Script
 
-echo "Setting up PowerElectric Angular 18 Project..."
+echo "Setting up VSSEnterprises Angular 18 Project..."
 echo ""
 
 # Check if Node.js is installed

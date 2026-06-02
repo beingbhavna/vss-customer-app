@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.powerelectric.com'
+  apiUrl: 'https://api.VSSEnterprises.com'
 };

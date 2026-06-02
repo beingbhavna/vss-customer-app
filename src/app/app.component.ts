@@ -7,7 +7,7 @@ import { SeoService } from './services/seo.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'PowerElectric';
+  title = 'VSSEnterprises';
 
   constructor(private seoService: SeoService) {}
 
@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
     // Set default SEO tags for home page
     this.seoService.updateSeoTags({
       title: 'Home',
-      description: 'PowerElectric provides professional electrical solutions for residential, commercial, and industrial clients. Expert installation, maintenance, and repair services available 24/7.',
+      description: 'VSSEnterprises provides professional electrical solutions for residential, commercial, and industrial clients. Expert installation, maintenance, and repair services available 24/7.',
       keywords: 'electrical services, electrical installation, electrical repair, home automation, solar panels, industrial solutions',
-      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/#/home'
     });
 

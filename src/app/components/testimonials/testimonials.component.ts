@@ -36,9 +36,9 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
     // Set SEO tags for testimonials page
     this.seoService.updateSeoTags({
       title: 'Testimonials & Reviews',
-      description: 'Read what our satisfied clients say about PowerElectric services. Discover real testimonials from residential, commercial, and industrial customers.',
+      description: 'Read what our satisfied clients say about VSSEnterprises services. Discover real testimonials from residential, commercial, and industrial customers.',
       keywords: 'testimonials, reviews, client feedback, customer reviews, electrical services reviews',
-      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/#/testimonials'
     });
 

@@ -55,9 +55,9 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
     // Set SEO tags for home page
     this.seoService.updateSeoTags({
       title: 'Home - Professional Electrical Solutions',
-      description: 'Welcome to PowerElectric - Your trusted partner for professional electrical solutions. Powering your future with excellence and innovation.',
+      description: 'Welcome to VSSEnterprises - Your trusted partner for professional electrical solutions. Powering your future with excellence and innovation.',
       keywords: 'electrical services, electrical installation, professional electrical solutions, home automation, industrial solutions',
-      image: 'https://www.powerelectric.com/assets/images/slides/5.png',
+      image: 'https://www.VSSEnterprises.com/assets/images/slides/5.png',
       url: '/#/home'
     });
 

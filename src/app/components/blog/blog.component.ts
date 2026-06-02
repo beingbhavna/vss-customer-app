@@ -23,9 +23,9 @@ export class BlogComponent implements OnInit, OnDestroy {
     // Set SEO tags for blog page
     this.seoService.updateSeoTags({
       title: 'Blog - Electrical Tips & Industry News',
-      description: 'Read PowerElectric blog for latest articles on electrical safety, energy efficiency, home automation, and industry trends. Expert tips from our team.',
+      description: 'Read VSSEnterprises blog for latest articles on electrical safety, energy efficiency, home automation, and industry trends. Expert tips from our team.',
       keywords: 'electrical blog, electrical safety, energy efficiency, home automation, electrical tips, industry news',
-      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/#/blog'
     });
 

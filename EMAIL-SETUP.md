@@ -205,7 +205,7 @@ For serverless email sending with Firebase.
 
 ## 📞 Support Email Addresses
 - Main: `vss.electricsenterprises@gmail.com`
-- Alternative: `info@powerelectric.com`
+- Alternative: `vss.electricsenterprises@gmail.com`
 
 ---
 

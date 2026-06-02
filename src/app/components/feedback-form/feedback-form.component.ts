@@ -46,9 +46,9 @@ export class FeedbackFormComponent implements OnInit {
     // Set SEO tags for feedback page
     this.seoService.updateSeoTags({
       title: 'Share Your Feedback',
-      description: 'Help us improve! Share your feedback and experience with PowerElectric services. Your reviews help us serve better.',
+      description: 'Help us improve! Share your feedback and experience with VSSEnterprises services. Your reviews help us serve better.',
       keywords: 'feedback, review, rating, customer feedback, testimonial',
-      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/#/feedback-form'
     });
   }
@@ -110,5 +110,9 @@ export class FeedbackFormComponent implements OnInit {
 
   get f() {
     return this.feedbackForm.controls;
+  }
+
+  closeModal(): void {
+    this.successMessage = '';
   }
 }

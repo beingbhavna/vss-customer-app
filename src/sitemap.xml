@@ -5,7 +5,7 @@
   
   <!-- Home Page -->
   <url>
-    <loc>https://www.powerelectric.com/</loc>
+    <loc>https://www.VSSEnterprises.com/</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -13,7 +13,7 @@
 
   <!-- Services Page -->
   <url>
-    <loc>https://www.powerelectric.com/#/services</loc>
+    <loc>https://www.VSSEnterprises.com/#/services</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -21,7 +21,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://www.powerelectric.com/#/about</loc>
+    <loc>https://www.VSSEnterprises.com/#/about</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -29,7 +29,7 @@
 
   <!-- Testimonials Page -->
   <url>
-    <loc>https://www.powerelectric.com/#/testimonials</loc>
+    <loc>https://www.VSSEnterprises.com/#/testimonials</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -37,7 +37,7 @@
 
   <!-- Blog Page -->
   <url>
-    <loc>https://www.powerelectric.com/#/blog</loc>
+    <loc>https://www.VSSEnterprises.com/#/blog</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -45,7 +45,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://www.powerelectric.com/#/contact</loc>
+    <loc>https://www.VSSEnterprises.com/#/contact</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

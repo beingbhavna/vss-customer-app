@@ -37,9 +37,9 @@ export class ContactComponent implements OnInit, OnDestroy {
     // Set SEO tags for contact page
     this.seoService.updateSeoTags({
       title: 'Contact Us',
-      description: 'Get in touch with PowerElectric. Reach out to our team for electrical services, inquiries, or support. Fast response guaranteed.',
+      description: 'Get in touch with VSSEnterprises. Reach out to our team for electrical services, inquiries, or support. Fast response guaranteed.',
       keywords: 'contact, electrical services, get in touch, support, inquiries',
-      image: 'https://www.powerelectric.com/assets/images/logo.jpg',
+      image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/#/contact'
     });
 
@@ -100,6 +100,10 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   get f() {
     return this.contactForm.controls;
+  }
+
+  closeModal(): void {
+    this.successMessage = '';
   }
 
   ngOnDestroy(): void {

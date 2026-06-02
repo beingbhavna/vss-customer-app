@@ -43,11 +43,6 @@
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form fadeInRight" data-animate>
         <h3>Send us a Message</h3>
 
-        <div *ngIf="successMessage" class="alert alert-success slideInDown">
-          <i class="fas fa-check-circle"></i>
-          {{ successMessage }}
-        </div>
-
         <div *ngIf="errorMessage" class="alert alert-error slideInDown">
           <i class="fas fa-exclamation-circle"></i>
           {{ errorMessage }}
@@ -127,3 +122,19 @@
     </div>
   </div>
 </section>
+
+<!-- Success Modal Popup -->
+<div *ngIf="successMessage" class="modal-overlay" (click)="closeModal()">
+  <div class="modal-popup" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="modal-body">
+      <h2>Success!</h2>
+      <p>{{ successMessage }}</p>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>

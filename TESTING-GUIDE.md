@@ -57,7 +57,7 @@ All these should navigate directly to their pages:
 
 ### Test Logo:
 1. Navigate to any page
-2. Click PowerElectric logo
+2. Click VSSEnterprises logo
 3. Should return to `/home`
 
 ---
