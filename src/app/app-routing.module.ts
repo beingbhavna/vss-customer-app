@@ -8,6 +8,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackDashboardComponent } from './components/feedback-dashboard/feedback-dashboard.component';
+import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'feedback-form', component: FeedbackFormComponent },
   { path: 'feedback-dashboard', component: FeedbackDashboardComponent },

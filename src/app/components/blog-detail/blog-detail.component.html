@@ -1,0 +1,57 @@
+<section class="blog-detail-section">
+  <div class="container" *ngIf="post">
+
+    <!-- Back Button -->
+    <button class="back-btn" (click)="goBack()">
+      <i class="fas fa-arrow-left"></i> Back to Blog
+    </button>
+
+    <!-- Article Header -->
+    <div class="article-header">
+      <div class="article-icon">
+        <i [class]="post.icon"></i>
+      </div>
+      <div class="article-meta">
+        <span class="article-date"><i class="fas fa-calendar-alt"></i> {{ post.date }}</span>
+        <span class="article-category"><i class="fas fa-tag"></i> Electrical Tips</span>
+      </div>
+      <h1 class="article-title">{{ post.title }}</h1>
+      <p class="article-excerpt">{{ post.excerpt }}</p>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Article Content -->
+    <div class="article-body">
+      <p>{{ post.content }}</p>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <h3><i class="fas fa-phone-alt"></i> Need Professional Help?</h3>
+      <p>Our certified electricians are available 24/7 for all your electrical needs.</p>
+      <button class="cta-btn" (click)="goToContact()">
+        Contact Us Now <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <!-- Related Posts -->
+    <div class="related-section" *ngIf="relatedPosts.length">
+      <h2 class="related-title">Related Articles</h2>
+      <div class="related-grid">
+        <div class="related-card" *ngFor="let related of relatedPosts" (click)="navigateToPost(related.id)">
+          <div class="related-icon">
+            <i [class]="related.icon"></i>
+          </div>
+          <div class="related-info">
+            <h4>{{ related.title }}</h4>
+            <span class="related-date">{{ related.date }}</span>
+            <span class="related-read">Read More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

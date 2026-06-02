@@ -39,8 +39,9 @@
   width: 70px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
-  border: 3px solid white;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  mix-blend-mode: screen;
+  border: 3px solid rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
 }
 

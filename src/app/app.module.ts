@@ -15,6 +15,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackDashboardComponent } from './components/feedback-dashboard/feedback-dashboard.component';
+import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FeedbackDashboardComponent } from './components/feedback-dashboard/feed
     ContactComponent,
     FooterComponent,
     FeedbackFormComponent,
-    FeedbackDashboardComponent
+    FeedbackDashboardComponent,
+    BlogDetailComponent
   ],
   imports: [
     BrowserModule,
