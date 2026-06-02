@@ -302,21 +302,10 @@
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
 }
 
-.price {
-  margin-top: 30px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 4px solid rgba(255, 255, 255, 0.3);
-  font-size: 1.1rem;
-}
-
 .close-btn {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 24px;
+  right: 24px;
   cursor: pointer;
   font-size: 32px;
   color: #999;
