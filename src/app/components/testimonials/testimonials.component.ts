@@ -42,16 +42,14 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
       url: '/#/testimonials'
     });
 
-    // Combine testimonials and recent feedbacks
+    // Combine static testimonials + all user-submitted testimonials from localStorage
     const testimonials = this.dataService.getTestimonials();
     const feedbacks = this.feedbackService.getAllFeedbacks();
 
-    this.allTestimonials = [...testimonials, ...feedbacks];
-
-    // If no testimonials, use feedbacks only
-    if (this.allTestimonials.length === 0) {
-      this.allTestimonials = testimonials;
-    }
+    // Always merge both sources; user-submitted ones appear first
+    this.allTestimonials = feedbacks.length > 0
+      ? [...feedbacks, ...testimonials]
+      : [...testimonials];
     this.autoSlideInterval = setInterval(() => {
       this.startAutoSlide();
     }, 2000); // Change slide every 2 seconds
