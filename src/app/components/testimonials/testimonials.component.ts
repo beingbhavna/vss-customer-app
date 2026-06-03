@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DataService, Testimonial } from '../../services/data.service';
 import { FeedbackService, Feedback } from '../../services/feedback.service';
 import { AnimationService } from '../../services/animation.service';
@@ -24,6 +25,7 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
   allTestimonials: (Testimonial | Feedback)[] = [];
   currentSlide = 0;
   autoSlideInterval: any;
+  private feedbackSubscription!: Subscription;
 
   constructor(
     private dataService: DataService,
@@ -42,14 +44,18 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
       url: '/#/testimonials'
     });
 
-    // Combine static testimonials + all user-submitted testimonials from localStorage
+    // Subscribe to real-time feedback updates
+    this.feedbackSubscription = this.feedbackService.feedbacks$.subscribe((feedbacks: Feedback[]) => {
+      this.updateTestimonials(feedbacks);
+    });
+
+    // Also load initial testimonials
     const testimonials = this.dataService.getTestimonials();
     const feedbacks = this.feedbackService.getAllFeedbacks();
-
-    // Always merge both sources; user-submitted ones appear first
     this.allTestimonials = feedbacks.length > 0
       ? [...feedbacks, ...testimonials]
       : [...testimonials];
+
     this.autoSlideInterval = setInterval(() => {
       this.startAutoSlide();
     }, 2000); // Change slide every 2 seconds
@@ -62,9 +68,24 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
     }, 100);
   }
 
+  // Update testimonials when feedback changes (real-time refresh)
+  private updateTestimonials(feedbacks: Feedback[]): void {
+    const testimonials = this.dataService.getTestimonials();
+    this.allTestimonials = feedbacks.length > 0
+      ? [...feedbacks, ...testimonials]
+      : [...testimonials];
+    // Reset to first slide to show new testimonial
+    if (feedbacks.length > 0) {
+      this.currentSlide = 0;
+    }
+  }
+
   ngOnDestroy() {
     if (this.autoSlideInterval) {
       clearInterval(this.autoSlideInterval);
+    }
+    if (this.feedbackSubscription) {
+      this.feedbackSubscription.unsubscribe();
     }
     this.animationService.destroy();
   }

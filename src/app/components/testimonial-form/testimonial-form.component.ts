@@ -57,7 +57,7 @@ export class TestimonialFormComponent {
       try {
         this.feedbackService.addFeedback(this.testimonialForm.value);
         this.isLoading = false;
-        this.successMessage = 'Thank you! Your testimonial has been submitted and will appear on our Testimonials page.';
+        this.successMessage = 'Thank you! Your testimonial has been submitted and is now visible to all customers on our Testimonials page.';
         this.testimonialForm.reset();
         this.submitted = false;
         this.selectedRating = 0;

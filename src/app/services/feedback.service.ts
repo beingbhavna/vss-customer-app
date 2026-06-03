@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Feedback {
   id: number;
@@ -17,9 +18,27 @@ export class FeedbackService {
   private feedbacks: Feedback[] = [];
   private feedbackCounter = 0;
   private feedbacksKey = 'powerelectric_feedbacks';
+  private feedbacksSubject = new BehaviorSubject<Feedback[]>([]);
+  public feedbacks$: Observable<Feedback[]> = this.feedbacksSubject.asObservable();
 
-  constructor() {
+  constructor(private ngZone: NgZone) {
     this.loadFeedbacks();
+    this.feedbacksSubject.next([...this.feedbacks]); // Emit initial state
+    this.setupStorageListener();
+  }
+
+  // Listen for storage changes from other tabs/windows
+  private setupStorageListener(): void {
+    this.ngZone.runOutsideAngular(() => {
+      window.addEventListener('storage', (event: StorageEvent) => {
+        if (event.key === this.feedbacksKey) {
+          this.ngZone.run(() => {
+            this.loadFeedbacks();
+            this.feedbacksSubject.next([...this.feedbacks]);
+          });
+        }
+      });
+    });
   }
 
   // Load feedbacks from localStorage
@@ -52,6 +71,7 @@ export class FeedbackService {
     };
     this.feedbacks.unshift(newFeedback); // Add to beginning of array
     this.saveFeedbacks();
+    this.feedbacksSubject.next([...this.feedbacks]); // Emit update
     return newFeedback;
   }
 
@@ -88,6 +108,7 @@ export class FeedbackService {
     if (index > -1) {
       this.feedbacks.splice(index, 1);
       this.saveFeedbacks();
+      this.feedbacksSubject.next([...this.feedbacks]); // Emit update
       return true;
     }
     return false;
