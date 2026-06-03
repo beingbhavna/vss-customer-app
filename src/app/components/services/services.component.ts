@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService, Service } from '../../services/data.service';
 import { AnimationService } from '../../services/animation.service';
 import { SeoService } from '../../services/seo.service';
@@ -10,8 +11,11 @@ import { SeoService } from '../../services/seo.service';
 })
 export class ServicesComponent implements OnInit, OnDestroy {
   @ViewChild('servicesSection') servicesSection!: ElementRef;
-  
+  @Input() limit: number | null = null;
+  @Input() showSeeMore = false;
+
   services: Service[] = [];
+  displayedServices: Service[] = [];
   expandedService: number | null = null;
   selectedService: any = null;
   isClosingModal = false;
@@ -19,7 +23,8 @@ export class ServicesComponent implements OnInit, OnDestroy {
   constructor(
     private dataService: DataService,
     private animationService: AnimationService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,6 +38,7 @@ export class ServicesComponent implements OnInit, OnDestroy {
     });
 
     this.services = this.dataService.getServices();
+    this.displayedServices = this.limit ? this.services.slice(0, this.limit) : this.services;
     
     // Delay to ensure DOM is rendered
     setTimeout(() => {
@@ -40,6 +46,10 @@ export class ServicesComponent implements OnInit, OnDestroy {
       this.animationService.observeElements(Array.from(cards));
       this.animationService.staggerElements(Array.from(cards), 100);
     }, 100);
+  }
+
+  goToServicesPage() {
+    this.router.navigate(['/services']);
   }
 
   toggleService(serviceId: number) {

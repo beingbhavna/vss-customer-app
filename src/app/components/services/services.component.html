@@ -10,7 +10,7 @@
 
     <div class="services-grid">
 
-      <div class="service-card zoomInUp" *ngFor="let service of services" data-animate>
+      <div class="service-card zoomInUp" *ngFor="let service of displayedServices" data-animate>
 
         <div class="icon-box">
           <i [class]="service.icon"></i>
@@ -25,6 +25,12 @@
 
       </div>
 
+    </div>
+
+    <div *ngIf="showSeeMore" class="see-more-container">
+      <button class="see-more-btn" (click)="goToServicesPage()">
+        See More Services <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
 
   </div>
