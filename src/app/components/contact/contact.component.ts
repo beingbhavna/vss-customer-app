@@ -71,8 +71,11 @@ export class ContactComponent implements OnInit, OnDestroy {
           this.isLoading = false;
 
           if (response.success) {
-            // Show success message
+            // Show success message in Hindi
             this.successMessage = response.message || 'Thank you! Your message has been sent successfully. We will contact you soon!';
+
+            // Open WhatsApp with form data formatted in Hindi
+            this.openWhatsApp(formData);
 
             // Log the form data
             console.log('Form Submitted:', formData);
@@ -100,6 +103,19 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   get f() {
     return this.contactForm.controls;
+  }
+
+  openWhatsApp(formData: any): void {
+    const message =
+      `🔔 नया संपर्क अनुरोध!\n\n` +
+      `👤 नाम: ${formData.name}\n` +
+      `📧 ईमेल: ${formData.email}\n` +
+      `📱 फोन: ${formData.phone}\n` +
+      `🔧 सेवा: ${formData.service}\n` +
+      `💬 संदेश: ${formData.message}\n\n` +
+      `📍 VSS Enterprises`;
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/919454445071?text=${encoded}`, '_blank');
   }
 
   closeModal(): void {

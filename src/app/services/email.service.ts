@@ -30,15 +30,15 @@ export class EmailService {
       
       console.log('Contact form stored locally:', payload);
       
-      return of({ 
-        success: true, 
-        message: 'Thank you! Your message has been received. We will contact you soon!' 
+      return of({
+        success: true,
+        message: 'Thank you! Your message has been received. We will contact you soon!'
       });
     } catch (error) {
       console.error('Error storing contact form:', error);
-      return of({ 
-        success: true, 
-        message: 'Your message has been received. We will contact you soon!' 
+      return of({
+        success: true,
+        message: 'Your message has been received. We will contact you soon!'
       });
     }
   }
@@ -53,15 +53,15 @@ export class EmailService {
       
       console.log('Feedback stored locally:', feedbackData);
       
-      return of({ 
-        success: true, 
-        message: 'Thank you for your feedback!' 
+      return of({
+        success: true,
+        message: 'Thank you for your feedback!'
       });
     } catch (error) {
       console.error('Error storing feedback:', error);
-      return of({ 
-        success: true, 
-        message: 'Thank you for your feedback!' 
+      return of({
+        success: true,
+        message: 'Thank you for your feedback!'
       });
     }
   }

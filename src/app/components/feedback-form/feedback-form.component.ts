@@ -75,6 +75,10 @@ export class FeedbackFormComponent implements OnInit {
           (response: any) => {
             this.isLoading = false;
             this.successMessage = '✅ Thank you for your feedback! Your review will help us improve our services.';
+
+            // Open WhatsApp with feedback formatted in Hindi
+            this.openWhatsApp(this.feedbackForm.value);
+
             // this.feedbackForm.reset();
             this.selectedRating = 0;
             this.submitted = false;
@@ -88,6 +92,10 @@ export class FeedbackFormComponent implements OnInit {
             this.isLoading = false;
             // Still show success even if email fails
             this.successMessage = '✅ Thank you for your feedback! Your review will help us improve our services.';
+
+            // Open WhatsApp with feedback formatted in Hindi
+            this.openWhatsApp(this.feedbackForm.value);
+
             // this.feedbackForm.reset();
             this.selectedRating = 0;
             this.submitted = false;
@@ -106,6 +114,20 @@ export class FeedbackFormComponent implements OnInit {
     } else {
       this.errorMessage = 'Please fill out all fields correctly.';
     }
+  }
+
+  openWhatsApp(formData: any): void {
+    const stars = '⭐'.repeat(formData.rating || 0);
+    const message =
+      `⭐ नई प्रतिक्रिया प्राप्त हुई!\n\n` +
+      `👤 ग्राहक का नाम: ${formData.customerName}\n` +
+      `📧 ईमेल: ${formData.email}\n` +
+      `🔧 सेवा: ${formData.service}\n` +
+      `⭐ रेटिंग: ${stars} (${formData.rating}/5)\n` +
+      `💬 समीक्षा: ${formData.message}\n\n` +
+      `📍 VSS Enterprises`;
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/919454445071?text=${encoded}`, '_blank');
   }
 
   get f() {
