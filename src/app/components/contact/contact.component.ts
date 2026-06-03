@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailService } from '../../services/email.service';
+import { TranslationService } from '../../services/translation.service';
 import { AnimationService } from '../../services/animation.service';
 import { SeoService } from '../../services/seo.service';
 
@@ -21,6 +22,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private emailService: EmailService,
+    private translationService: TranslationService,
     private animationService: AnimationService,
     private seoService: SeoService
   ) {
@@ -106,15 +108,9 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   openWhatsApp(formData: any): void {
-    const message =
-      `🔔 नया संपर्क अनुरोध!\n\n` +
-      `👤 नाम: ${formData.name}\n` +
-      `📧 ईमेल: ${formData.email}\n` +
-      `📱 फोन: ${formData.phone}\n` +
-      `🔧 सेवा: ${formData.service}\n` +
-      `💬 संदेश: ${formData.message}\n\n` +
-      `📍 VSS Enterprises`;
-    const encoded = encodeURIComponent(message);
+    // Get Hindi message for admin
+    const hindiMessage = this.translationService.formatWhatsAppMessageForAdmin(formData);
+    const encoded = encodeURIComponent(hindiMessage);
     window.open(`https://wa.me/919454445071?text=${encoded}`, '_blank');
   }
 

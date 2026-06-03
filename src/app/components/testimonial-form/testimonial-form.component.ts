@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FeedbackService } from '../../services/feedback.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-testimonial-form',
@@ -27,7 +28,8 @@ export class TestimonialFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private feedbackService: FeedbackService
+    private feedbackService: FeedbackService,
+    private translationService: TranslationService
   ) {
     this.testimonialForm = this.fb.group({
       customerName: ['', [Validators.required, Validators.minLength(2)]],
@@ -55,9 +57,14 @@ export class TestimonialFormComponent {
     if (this.testimonialForm.valid) {
       this.isLoading = true;
       try {
-        this.feedbackService.addFeedback(this.testimonialForm.value);
+        const feedbackData = this.testimonialForm.value;
+        this.feedbackService.addFeedback(feedbackData);
         this.isLoading = false;
         this.successMessage = 'Thank you! Your testimonial has been submitted and is now visible to all customers on our Testimonials page.';
+        
+        // Send WhatsApp notification to admin in Hindi
+        this.sendWhatsAppNotification(feedbackData);
+        
         this.testimonialForm.reset();
         this.submitted = false;
         this.selectedRating = 0;
@@ -70,6 +77,15 @@ export class TestimonialFormComponent {
     } else {
       this.errorMessage = 'Please fill out all fields correctly.';
     }
+  }
+
+  private sendWhatsAppNotification(feedbackData: any): void {
+    // Get Hindi formatted message for admin
+    const hindiMessage = this.translationService.formatWhatsAppFeedbackForAdmin(feedbackData);
+    const encoded = encodeURIComponent(hindiMessage);
+    
+    // Open WhatsApp in a new window (non-blocking)
+    window.open(`https://wa.me/919454445071?text=${encoded}`, '_blank', 'noopener,noreferrer');
   }
 
   closeSuccess() {
