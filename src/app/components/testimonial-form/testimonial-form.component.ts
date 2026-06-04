@@ -56,24 +56,27 @@ export class TestimonialFormComponent {
 
     if (this.testimonialForm.valid) {
       this.isLoading = true;
-      try {
-        const feedbackData = this.testimonialForm.value;
-        this.feedbackService.addFeedback(feedbackData);
-        this.isLoading = false;
-        this.successMessage = 'Thank you! Your testimonial has been submitted and is now visible to all customers on our Testimonials page.';
-        
-        // Send WhatsApp notification to admin in Hindi
-        this.sendWhatsAppNotification(feedbackData);
-        
-        this.testimonialForm.reset();
-        this.submitted = false;
-        this.selectedRating = 0;
-        this.hoverRating = 0;
-        setTimeout(() => { this.successMessage = ''; }, 6000);
-      } catch (error) {
-        this.isLoading = false;
-        this.errorMessage = 'Something went wrong. Please try again.';
-      }
+      const feedbackData = this.testimonialForm.value;
+
+      this.feedbackService.submitTestimonial(feedbackData).subscribe({
+        next: (response: any) => {
+          this.isLoading = false;
+          this.successMessage = response.message || 'Thank you! Your testimonial is now visible to all customers on our Testimonials page.';
+
+          // Send WhatsApp notification to admin in Hindi
+          this.sendWhatsAppNotification(feedbackData);
+
+          this.testimonialForm.reset();
+          this.submitted = false;
+          this.selectedRating = 0;
+          this.hoverRating = 0;
+          setTimeout(() => { this.successMessage = ''; }, 6000);
+        },
+        error: () => {
+          this.isLoading = false;
+          this.errorMessage = 'Something went wrong. Please try again.';
+        }
+      });
     } else {
       this.errorMessage = 'Please fill out all fields correctly.';
     }

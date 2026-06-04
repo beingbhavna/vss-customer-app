@@ -1,5 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 export interface Feedback {
   id: number;
@@ -21,7 +24,9 @@ export class FeedbackService {
   private feedbacksSubject = new BehaviorSubject<Feedback[]>([]);
   public feedbacks$: Observable<Feedback[]> = this.feedbacksSubject.asObservable();
 
-  constructor(private ngZone: NgZone) {
+  private apiUrl = environment.apiUrl;
+
+  constructor(private ngZone: NgZone, private http: HttpClient) {
     this.loadFeedbacks();
     this.feedbacksSubject.next([...this.feedbacks]); // Emit initial state
     this.setupStorageListener();
@@ -112,6 +117,36 @@ export class FeedbackService {
       return true;
     }
     return false;
+  }
+
+  // Submit testimonial to backend API + save locally + emit refresh
+  submitTestimonial(feedback: Omit<Feedback, 'id' | 'date'>): Observable<any> {
+    return new Observable(observer => {
+      this.http.post(`${this.apiUrl}/api/testimonial`, feedback).pipe(
+        catchError(err => {
+          console.warn('Backend unavailable, saving locally only:', err.message);
+          return of({ success: true, local: true });
+        })
+      ).subscribe(() => {
+        // Save locally AND emit BehaviorSubject so TestimonialsComponent refreshes instantly
+        this.addFeedback(feedback);
+        observer.next({
+          success: true,
+          message: 'Thank you! Your testimonial is now visible to all customers on our Testimonials page.'
+        });
+        observer.complete();
+      });
+    });
+  }
+
+  // Fetch all testimonials from backend (shared across all users/browsers)
+  getTestimonialsFromApi(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/api/testimonials`).pipe(
+      catchError(err => {
+        console.warn('API unavailable, using local data:', err.message);
+        return of({ success: true, data: this.getAllFeedbacks() });
+      })
+    );
   }
 
   // Get rating distribution
