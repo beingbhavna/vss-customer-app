@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'https://vss-enterprise-api.bhavnasharma52134.workers.dev'
 };
