@@ -33,30 +33,25 @@
             <label for="customerName">Full Name <span class="required">*</span></label>
             <div class="input-wrapper">
               <i class="fas fa-user input-icon"></i>
-              <input
-                id="customerName"
-                type="text"
-                formControlName="customerName"
-                placeholder="Enter your full name"
+              <input id="customerName" type="text" formControlName="customerName" placeholder="Enter your full name"
                 [class.invalid]="submitted && f['customerName'].errors">
             </div>
-            <span class="field-error" *ngIf="submitted && f['customerName'].errors?.['required']">Name is required.</span>
-            <span class="field-error" *ngIf="submitted && f['customerName'].errors?.['minlength']">Name must be at least 2 characters.</span>
+            <span class="field-error" *ngIf="submitted && f['customerName'].errors?.['required']">Name is
+              required.</span>
+            <span class="field-error" *ngIf="submitted && f['customerName'].errors?.['minlength']">Name must be at least
+              2 characters.</span>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address <span class="required">*</span></label>
             <div class="input-wrapper">
               <i class="fas fa-envelope input-icon"></i>
-              <input
-                id="email"
-                type="email"
-                formControlName="email"
-                placeholder="Enter your email"
+              <input id="email" type="email" formControlName="email" placeholder="Enter your email"
                 [class.invalid]="submitted && f['email'].errors">
             </div>
             <span class="field-error" *ngIf="submitted && f['email'].errors?.['required']">Email is required.</span>
-            <span class="field-error" *ngIf="submitted && f['email'].errors?.['email']">Please enter a valid email.</span>
+            <span class="field-error" *ngIf="submitted && f['email'].errors?.['email']">Please enter a valid
+              email.</span>
           </div>
 
         </div>
@@ -68,18 +63,16 @@
             <label for="service">Service Used <span class="required">*</span></label>
             <div class="input-wrapper">
               <i class="fas fa-tools input-icon"></i>
-              <select
-                id="service"
-                formControlName="service"
-                [class.invalid]="submitted && f['service'].errors">
+              <select id="service" formControlName="service" [class.invalid]="submitted && f['service'].errors">
                 <option value="" disabled selected>Select a service</option>
                 <option *ngFor="let svc of services" [value]="svc">{{ svc }}</option>
               </select>
             </div>
-            <span class="field-error" *ngIf="submitted && f['service'].errors?.['required']">Please select a service.</span>
+            <span class="field-error" *ngIf="submitted && f['service'].errors?.['required']">Please select a
+              service.</span>
           </div>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label>Your Rating <span class="required">*</span></label>
             <div class="star-rating">
               <i *ngFor="let star of [1,2,3,4,5]"
@@ -94,8 +87,33 @@
               </span>
             </div>
             <span class="field-error" *ngIf="submitted && f['rating'].errors?.['min']">Please select a rating.</span>
-          </div>
+          </div> -->
 
+          <div class="form-group">
+            <label>Your Experience Rating <span class="required">*</span></label>
+            <div class="emoji-rating">
+              <button type="button" class="emoji-btn" *ngFor="let rating of ratings" [class.selected]="selectedRating === rating.value" (click)="setRating(rating.value)">
+                <span class="emoji-icon">
+                  {{ rating.emoji }}
+                </span>
+                <span class="emoji-text">
+                  {{ rating.label }}
+                </span>
+              </button>
+            </div>
+
+            <div class="selected-rating" *ngIf="selectedRating">
+              <span class="selected-emoji">
+                {{ getEmoji(selectedRating) }}
+              </span>
+              <span>
+                {{ getRatingText(selectedRating) }}
+              </span>
+            </div>
+            <span class="field-error" *ngIf="submitted && f['rating'].errors">
+              Please select your experience rating.
+            </span>
+          </div>
         </div>
 
         <!-- Row 3: Message -->
@@ -103,17 +121,16 @@
           <label for="message">Your Experience <span class="required">*</span></label>
           <div class="input-wrapper">
             <i class="fas fa-comment-alt input-icon textarea-icon"></i>
-            <textarea
-              id="message"
-              formControlName="message"
-              placeholder="Tell us about your experience with our service..."
-              rows="4"
+            <textarea id="message" formControlName="message"
+              placeholder="Tell us about your experience with our service..." rows="4"
               [class.invalid]="submitted && f['message'].errors">
             </textarea>
           </div>
           <div class="char-count">{{ testimonialForm.get('message')?.value?.length || 0 }} / 500</div>
-          <span class="field-error" *ngIf="submitted && f['message'].errors?.['required']">Review message is required.</span>
-          <span class="field-error" *ngIf="submitted && f['message'].errors?.['minlength']">Message must be at least 10 characters.</span>
+          <span class="field-error" *ngIf="submitted && f['message'].errors?.['required']">Review message is
+            required.</span>
+          <span class="field-error" *ngIf="submitted && f['message'].errors?.['minlength']">Message must be at least 10
+            characters.</span>
         </div>
 
         <!-- Submit Button -->

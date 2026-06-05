@@ -444,3 +444,106 @@
     grid-template-columns: 40px 1fr 35px;
   }
 }
+
+/* Emoji Rating Display */
+
+.emoji-display {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feedback-emoji {
+  font-size: 2.2rem;
+}
+
+.rating-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-text {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.rating-value {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* Distribution Labels */
+
+.emoji-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+  font-weight: 600;
+}
+
+.emoji-label .emoji {
+  font-size: 1.5rem;
+}
+
+/* Progress Bars */
+
+.bar-container {
+  flex: 1;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 30px;
+  transition: width 0.5s ease;
+
+  background: linear-gradient(
+    90deg,
+    #ef4444,
+    #f97316,
+    #facc15,
+    #22c55e,
+    #10b981
+  );
+}
+
+.bar-count {
+  min-width: 30px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Stat Icons */
+
+.stat-icon {
+  font-size: 2.5rem;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .rating-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .emoji-label {
+    min-width: auto;
+  }
+
+  .feedback-emoji {
+    font-size: 1.8rem;
+  }
+}

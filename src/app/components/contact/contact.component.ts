@@ -77,7 +77,7 @@ export class ContactComponent implements OnInit, OnDestroy {
             this.successMessage = response.message || 'Thank you! Your message has been sent successfully. We will contact you soon!';
 
             // Open WhatsApp with form data formatted in Hindi
-            this.openWhatsApp(formData);
+            // this.openWhatsApp(formData);
 
             // Log the form data
             console.log('Form Submitted:', formData);

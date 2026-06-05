@@ -21,11 +21,46 @@ interface CombinedFeedback extends Feedback {
 })
 export class TestimonialsComponent implements OnInit, OnDestroy {
   @ViewChild('testimonialsSection') testimonialsSection!: ElementRef;
-  
+
   allTestimonials: (Testimonial | Feedback)[] = [];
   currentSlide = 0;
   autoSlideInterval: any;
   private feedbackSubscription!: Subscription;
+  getEmoji(rating: number): string {
+
+    switch (rating) {
+      case 1:
+        return '😡';
+      case 2:
+        return '😞';
+      case 3:
+        return '😐';
+      case 4:
+        return '😊';
+      case 5:
+        return '🤩';
+      default:
+        return '😐';
+    }
+  }
+
+  getRatingText(rating: number): string {
+
+    switch (rating) {
+      case 1:
+        return 'Worst';
+      case 2:
+        return 'Poor';
+      case 3:
+        return 'Average';
+      case 4:
+        return 'Good';
+      case 5:
+        return 'Excellent';
+      default:
+        return 'Average';
+    }
+  }
 
   constructor(
     private dataService: DataService,

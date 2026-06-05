@@ -48,21 +48,24 @@
         <!-- Rating Selection -->
         <div class="form-group">
           <label>Rate Your Experience</label>
-          <div class="rating-selector">
-            <div *ngFor="let i of [1, 2, 3, 4, 5]" class="star-wrapper" (mouseenter)="hoverRating = i"
-              (mouseleave)="hoverRating = 0">
-              <button type="button" class="star-btn" [disabled]="isLoading"
-                [class.filled]="i <= (hoverRating || selectedRating)" (click)="setRating(i)"
-                [attr.aria-label]="'Rate ' + i + ' stars'">
-                <i class="fas fa-star"></i>
-              </button>
-            </div>
-            <span class="rating-text" *ngIf="selectedRating > 0">
-              {{ selectedRating }} out of 5 stars
-            </span>
+
+          <div class="emoji-rating">
+            <button type="button" *ngFor="let emoji of emojis" class="emoji-btn"
+              [class.selected]="selectedRating === emoji.value" (click)="setRating(emoji.value)" [disabled]="isLoading">
+
+              <span class="emoji">{{ emoji.icon }}</span>
+              <span class="emoji-label">{{ emoji.label }}</span>
+
+            </button>
           </div>
+
+          <div class="selected-rating" *ngIf="selectedRating">
+            {{ emojis[selectedRating - 1].icon }}
+            {{ emojis[selectedRating - 1].label }}
+          </div>
+
           <small *ngIf="submitted && f['rating'].errors" class="error-text">
-            Please select a rating
+            Please select your experience
           </small>
         </div>
 

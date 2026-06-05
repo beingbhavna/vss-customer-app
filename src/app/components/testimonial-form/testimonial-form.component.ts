@@ -25,6 +25,81 @@ export class TestimonialFormComponent {
     'Industrial Solutions',
     'Electric & Electronic Contracting'
   ];
+  ratings = [
+    {
+      value: 1,
+      emoji: '😡',
+      label: 'Worst'
+    },
+    {
+      value: 2,
+      emoji: '😞',
+      label: 'Poor'
+    },
+    {
+      value: 3,
+      emoji: '😐',
+      label: 'Average'
+    },
+    {
+      value: 4,
+      emoji: '😊',
+      label: 'Good'
+    },
+    {
+      value: 5,
+      emoji: '🤩',
+      label: 'Excellent'
+    }
+  ];
+
+  getEmoji(rating: number): string {
+
+    switch (rating) {
+
+      case 1:
+        return '😡';
+
+      case 2:
+        return '😞';
+
+      case 3:
+        return '😐';
+
+      case 4:
+        return '😊';
+
+      case 5:
+        return '🤩';
+
+      default:
+        return '';
+    }
+  }
+
+  getRatingText(rating: number): string {
+
+    switch (rating) {
+
+      case 1:
+        return 'Worst';
+
+      case 2:
+        return 'Poor';
+
+      case 3:
+        return 'Average';
+
+      case 4:
+        return 'Good';
+
+      case 5:
+        return 'Excellent';
+
+      default:
+        return '';
+    }
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -86,7 +161,7 @@ export class TestimonialFormComponent {
     // Get Hindi formatted message for admin
     const hindiMessage = this.translationService.formatWhatsAppFeedbackForAdmin(feedbackData);
     const encoded = encodeURIComponent(hindiMessage);
-    
+
     // Open WhatsApp in a new window (non-blocking)
     window.open(`https://wa.me/919454445071?text=${encoded}`, '_blank', 'noopener,noreferrer');
   }

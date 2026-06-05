@@ -12,9 +12,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(255,255,255,.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255,255,255,.1) 0%, transparent 50%);
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, .1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, .1) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -41,8 +41,13 @@
 }
 
 @keyframes expandWidth {
-  from { width: 0; }
-  to { width: 80px; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 80px;
+  }
 }
 
 .section-subtitle {
@@ -95,6 +100,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -121,11 +127,25 @@
   animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.stars i:nth-child(1) { animation-delay: 0s; }
-.stars i:nth-child(2) { animation-delay: 0.1s; }
-.stars i:nth-child(3) { animation-delay: 0.2s; }
-.stars i:nth-child(4) { animation-delay: 0.3s; }
-.stars i:nth-child(5) { animation-delay: 0.4s; }
+.stars i:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stars i:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.stars i:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.stars i:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.stars i:nth-child(5) {
+  animation-delay: 0.4s;
+}
 
 .testimonial-text {
   color: white;
@@ -297,7 +317,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
   pointer-events: none;
 }
@@ -403,5 +423,46 @@
 
   .stat-box h3 {
     font-size: 1.5rem;
+  }
+}
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.testimonial-emoji {
+  font-size: 2.5rem;
+  animation: emojiBounce 2s infinite;
+}
+
+.rating-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f59e0b;
+}
+
+.rating-score {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+@keyframes emojiBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
   }
 }

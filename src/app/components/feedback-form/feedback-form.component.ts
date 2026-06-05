@@ -27,6 +27,33 @@ export class FeedbackFormComponent implements OnInit {
     'Electric & Electronic Contracting'
   ];
 
+  emojis = [
+    {
+      value: 1,
+      icon: '😡',
+      label: 'Worst'
+    },
+    {
+      value: 2,
+      icon: '😞',
+      label: 'Poor'
+    },
+    {
+      value: 3,
+      icon: '😐',
+      label: 'Average'
+    },
+    {
+      value: 4,
+      icon: '😊',
+      label: 'Good'
+    },
+    {
+      value: 5,
+      icon: '🤩',
+      label: 'Excellent'
+    }
+  ];
   constructor(
     private fb: FormBuilder,
     private seoService: SeoService,
@@ -53,9 +80,18 @@ export class FeedbackFormComponent implements OnInit {
     });
   }
 
-  setRating(rating: number) {
+  // setRating(rating: number) {
+  //   this.selectedRating = rating;
+  //   this.feedbackForm.patchValue({ rating });
+  // }
+
+
+  setRating(rating: number): void {
     this.selectedRating = rating;
-    this.feedbackForm.patchValue({ rating });
+    this.feedbackForm.patchValue({
+      rating: rating
+    });
+    this.feedbackForm.get('rating')?.markAsTouched();
   }
 
   onSubmit() {
@@ -66,10 +102,10 @@ export class FeedbackFormComponent implements OnInit {
 
     if (this.feedbackForm.valid) {
       this.isLoading = true;
-      
+
       try {
         const newFeedback = this.feedbackService.addFeedback(this.feedbackForm.value);
-        
+
         // Send feedback email
         this.emailService.sendFeedbackEmail(newFeedback).subscribe(
           (response: any) => {
@@ -77,7 +113,7 @@ export class FeedbackFormComponent implements OnInit {
             this.successMessage = '✅ Thank you for your feedback! Your review will help us improve our services.';
 
             // Open WhatsApp with feedback formatted in Hindi
-            this.openWhatsApp(this.feedbackForm.value);
+            // this.openWhatsApp(this.feedbackForm.value);
 
             // this.feedbackForm.reset();
             this.selectedRating = 0;
@@ -94,7 +130,7 @@ export class FeedbackFormComponent implements OnInit {
             this.successMessage = '✅ Thank you for your feedback! Your review will help us improve our services.';
 
             // Open WhatsApp with feedback formatted in Hindi
-            this.openWhatsApp(this.feedbackForm.value);
+            // this.openWhatsApp(this.feedbackForm.value);
 
             // this.feedbackForm.reset();
             this.selectedRating = 0;
@@ -106,7 +142,7 @@ export class FeedbackFormComponent implements OnInit {
             }, 5000);
           }
         );
-        
+
       } catch (error) {
         this.isLoading = false;
         this.errorMessage = 'Error saving feedback. Please try again.';

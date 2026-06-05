@@ -29,6 +29,53 @@ export class FeedbackDashboardComponent implements OnInit {
     'Electric & Electronic Contracting'
   ];
 
+  getEmoji(rating: number): string {
+
+  switch (rating) {
+
+    case 1:
+      return '😡';
+
+    case 2:
+      return '😞';
+
+    case 3:
+      return '😐';
+
+    case 4:
+      return '😊';
+
+    case 5:
+      return '🤩';
+
+    default:
+      return '😐';
+  }
+}
+
+getRatingText(rating: number): string {
+
+  switch (rating) {
+
+    case 1:
+      return 'Worst';
+
+    case 2:
+      return 'Poor';
+
+    case 3:
+      return 'Average';
+
+    case 4:
+      return 'Good';
+
+    case 5:
+      return 'Excellent';
+
+    default:
+      return 'Average';
+  }
+}
   constructor(private feedbackService: FeedbackService, private seoService: SeoService) {}
 
   ngOnInit() {

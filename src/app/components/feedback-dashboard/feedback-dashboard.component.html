@@ -17,7 +17,7 @@
 
       <div class="stat-card">
         <div class="stat-icon">
-          <i class="fas fa-star"></i>
+          😊
         </div>
         <div class="stat-content">
           <h3>{{ averageRating }}/5</h3>
@@ -41,7 +41,7 @@
         </div>
         <div class="stat-content">
           <h3>{{ ratingDistribution[4].count || 0 }}</h3>
-          <p>5-Star Reviews</p>
+          <p>Excellent Reviews</p>
         </div>
       </div>
     </div>
@@ -50,16 +50,41 @@
     <div class="rating-distribution">
       <h3>Rating Distribution</h3>
       <div class="distribution-bars">
-        <div *ngFor="let dist of ratingDistribution" class="rating-bar">
+        <!-- <div *ngFor="let dist of ratingDistribution" class="rating-bar">
           <label>{{ dist.rating }}★</label>
           <div class="bar-container">
-            <div class="bar-fill" 
-                 [style.width]="(dist.count / (totalFeedbacks || 1) * 100) + '%'"
-                 [attr.data-count]="dist.count">
+            <div class="bar-fill" [style.width]="(dist.count / (totalFeedbacks || 1) * 100) + '%'"
+              [attr.data-count]="dist.count">
             </div>
           </div>
           <span class="bar-count">{{ dist.count }}</span>
+        </div> -->
+
+        <div *ngFor="let dist of ratingDistribution" class="rating-bar">
+
+          <label class="emoji-label">
+
+            <span class="emoji">
+              {{ getEmoji(dist.rating) }}
+            </span>
+
+            <span>
+              {{ getRatingText(dist.rating) }}
+            </span>
+
+          </label>
+
+          <div class="bar-container">
+            <div class="bar-fill" [style.width]="(dist.count / (totalFeedbacks || 1) * 100) + '%'">
+            </div>
+          </div>
+
+          <span class="bar-count">
+            {{ dist.count }}
+          </span>
+
         </div>
+
       </div>
     </div>
 
@@ -67,9 +92,7 @@
     <div class="controls-section">
       <div class="filter-section">
         <label for="serviceFilter">Filter by Service:</label>
-        <select id="serviceFilter" 
-                [(ngModel)]="filterService"
-                (change)="onFilterChange()">
+        <select id="serviceFilter" [(ngModel)]="filterService" (change)="onFilterChange()">
           <option *ngFor="let service of services" [value]="service === 'All Services' ? '' : service">
             {{ service }}
           </option>
@@ -78,9 +101,7 @@
 
       <div class="sort-section">
         <label for="sortBy">Sort by:</label>
-        <select id="sortBy" 
-                [(ngModel)]="sortBy"
-                (change)="onSortChange()">
+        <select id="sortBy" [(ngModel)]="sortBy" (change)="onSortChange()">
           <option value="newest">Newest First</option>
           <option value="oldest">Oldest First</option>
           <option value="highest-rating">Highest Rating</option>
@@ -114,10 +135,27 @@
           </div>
 
           <div class="feedback-meta">
-            <div class="rating-display">
+            <!-- <div class="rating-display">
               <i *ngFor="let star of getStarArray(feedback.rating)" class="fas fa-star"></i>
               <span class="rating-value">{{ feedback.rating }}/5</span>
+            </div> -->
+
+            <div class="rating-display emoji-display">
+              <span class="feedback-emoji">
+                {{ getEmoji(feedback.rating) }}
+              </span>
+
+              <div class="rating-info">
+                <span class="rating-text">
+                  {{ getRatingText(feedback.rating) }}
+                </span>
+
+                <span class="rating-value">
+                  {{ feedback.rating }}/5
+                </span>
+              </div>
             </div>
+
             <time class="feedback-date">{{ feedback.date | date:'MMM d, y' }}</time>
           </div>
         </div>
@@ -131,9 +169,8 @@
             <i class="fas fa-envelope"></i>
             {{ feedback.email }}
           </a>
-          <button class="delete-btn" 
-                  (click)="deleteFeedback(feedback.id)"
-                  [title]="'Delete feedback from ' + feedback.customerName">
+          <button class="delete-btn" (click)="deleteFeedback(feedback.id)"
+            [title]="'Delete feedback from ' + feedback.customerName">
             <i class="fas fa-trash-alt"></i>
             Delete
           </button>
@@ -143,22 +180,16 @@
 
     <!-- Pagination -->
     <div class="pagination" *ngIf="getTotalPages() > 1">
-      <button [disabled]="currentPage === 1" 
-              (click)="goToPage(currentPage - 1)"
-              class="pagination-btn">
+      <button [disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)" class="pagination-btn">
         <i class="fas fa-chevron-left"></i>
       </button>
 
-      <button *ngFor="let page of [].constructor(getTotalPages()); let i = index"
-              [class.active]="currentPage === i + 1"
-              (click)="goToPage(i + 1)"
-              class="pagination-btn page-btn">
+      <button *ngFor="let page of [].constructor(getTotalPages()); let i = index" [class.active]="currentPage === i + 1"
+        (click)="goToPage(i + 1)" class="pagination-btn page-btn">
         {{ i + 1 }}
       </button>
 
-      <button [disabled]="currentPage === getTotalPages()" 
-              (click)="goToPage(currentPage + 1)"
-              class="pagination-btn">
+      <button [disabled]="currentPage === getTotalPages()" (click)="goToPage(currentPage + 1)" class="pagination-btn">
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
