@@ -23,7 +23,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #f5a623, #00d4ff);
   border-radius: 2px;
   animation: expandWidth 0.8s ease-out forwards;
 }
@@ -82,12 +82,12 @@
 
 .info-card:hover {
   transform: translateY(-15px);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 15px 40px rgba(245, 166, 35, 0.2);
 }
 
 .info-icon {
   font-size: 2.5rem;
-  color: #667eea;
+  color: #f5a623;
   margin-bottom: 15px;
   transition: all 0.3s ease;
   display: inline-block;
@@ -96,7 +96,7 @@
 
 .info-card:hover .info-icon {
   transform: scale(1.2) rotate(10deg) translateY(-5px);
-  color: #764ba2;
+  color: #00d4ff;
   animation: none;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .info-card:hover h4 {
-  color: #667eea;
+  color: #f5a623;
 }
 
 .info-card p {
@@ -125,7 +125,7 @@
 }
 
 .contact-form {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -191,7 +191,7 @@
 
 .form-group input:focus::placeholder,
 .form-group textarea:focus::placeholder {
-  color: #667eea;
+  color: #f5a623;
 }
 
 .form-group input.is-invalid,
@@ -248,8 +248,8 @@
 .submit-btn {
   width: 100%;
   padding: 15px;
-  background: white;
-  color: #667eea;
+  background: linear-gradient(135deg, #f5a623 0%, #00d4ff 100%);
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 1.1rem;
@@ -278,8 +278,8 @@
 
 .submit-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  color: #764ba2;
+  box-shadow: 0 8px 25px rgba(245, 166, 35, 0.4);
+  opacity: 0.9;
 }
 
 .submit-btn:hover::before {
@@ -349,7 +349,7 @@
 }
 
 .modal-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
   padding: 30px;
   text-align: center;
   color: white;
@@ -407,13 +407,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f5a623 0%, #00d4ff 100%);
   color: white;
 }
 
 .modal-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 20px rgba(245, 166, 35, 0.4);
 }
 
 .modal-btn:active {

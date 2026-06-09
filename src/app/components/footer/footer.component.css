@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
   color: white;
   padding: 50px 0 0;
   margin-top: 60px;
@@ -16,8 +16,8 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(245, 166, 35, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(245, 166, 35, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -48,7 +48,7 @@
   height: 65px;
   border-radius: 50%;
   object-fit: cover;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #f5a623, #764ba2);
   mix-blend-mode: screen;
   border: 3px solid rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
@@ -56,8 +56,8 @@
 
 .footer-logo img:hover {
   transform: scale(1.08);
-  border-color: #667eea;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  border-color: #f5a623;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.5);
 }
 
 .footer-logo span {
@@ -69,7 +69,7 @@
 }
 
 .footer-section:hover .footer-logo span {
-  color: #667eea;
+  color: #f5a623;
 }
 
 .footer-section h3 {
@@ -82,11 +82,11 @@
 }
 
 .footer-section:hover h3 {
-  color: #667eea;
+  color: #f5a623;
 }
 
 .footer-section h3 i {
-  color: #667eea;
+  color: #f5a623;
   font-size: 2rem;
   transition: all 0.3s ease;
 }
@@ -110,7 +110,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #667eea;
+  background: #f5a623;
   transition: width 0.3s ease;
 }
 
@@ -157,12 +157,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #667eea;
+  background: #f5a623;
   transition: width 0.3s ease;
 }
 
 .link-hover:hover {
-  color: #667eea;
+  color: #f5a623;
 }
 
 .link-hover:hover::before {
@@ -180,11 +180,11 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(102, 126, 234, 0.2);
+  background-color: rgba(245, 166, 35, 0.2);
   border-radius: 50%;
   font-size: 1.2rem;
   transition: all 0.3s ease;
-  color: #667eea;
+  color: #f5a623;
   position: relative;
   overflow: hidden;
 }
@@ -196,7 +196,7 @@
   left: 50%;
   width: 0;
   height: 0;
-  background: #667eea;
+  background: #f5a623;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width 0.3s ease, height 0.3s ease;
@@ -211,7 +211,7 @@
 .social-link:hover {
   color: white;
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 15px rgba(245, 166, 35, 0.3);
 }
 
 .footer-bottom {
@@ -225,7 +225,7 @@
 }
 
 .footer-link {
-  color: #667eea;
+  color: #f5a623;
   text-decoration: none;
   margin: 0 10px;
   transition: all 0.3s ease;
@@ -239,7 +239,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: #667eea;
+  background: #f5a623;
   transition: width 0.3s ease;
 }
 

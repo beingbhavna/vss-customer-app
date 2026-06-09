@@ -1,6 +1,6 @@
 /* NAVBAR */
 .navbar {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #1a1a2e, #0d0d1a);
   padding: 12px 0;
   position: sticky;
   top: 0;
@@ -194,7 +194,7 @@
     width: 100%;
     min-height: calc(100vh - 74px);
     flex-direction: column;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #1a1a2e, #0d0d1a);
     text-align: center;
     transition: left 0.3s ease;
     gap: 0;
@@ -252,7 +252,7 @@
     left: -100%;
     top: 80px;
     flex-direction: column;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #1a1a2e, #0d0d1a);
     width: 100%;
     text-align: center;
     transition: 0.3s;
