@@ -1,56 +1,106 @@
 <section id="services" class="services-section" #servicesSection>
   <div class="container">
-    <div style="text-align: center; margin-bottom: 50px;">
-      <h2 class="section-title fadeInUp" data-animate>Our Services</h2>
-      <div style="height: 2px; width: 100px; background: linear-gradient(90deg, #667eea, #764ba2); margin: 20px auto 0;"></div>
-    </div>
-    <p class="section-subtitle fadeInUp" data-animate>
-      We provide complete electrical and electronic solutions for residential, commercial and industrial projects.
-    </p>
 
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-tag">What We Offer</span>
+      <h2 class="section-title fadeInUp" data-animate>Our Services</h2>
+      <div class="title-underline"></div>
+      <p class="section-subtitle fadeInUp" data-animate>
+        We provide complete electrical and electronic solutions for residential, commercial and industrial projects.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
     <div class="services-grid">
 
-      <div class="service-card zoomInUp" *ngFor="let service of displayedServices" data-animate>
+      <div class="service-card zoomInUp" *ngFor="let service of displayedServices; let i = index" data-animate>
 
-        <div class="icon-box">
-          <i [class]="service.icon"></i>
+        <!-- Top accent bar (animates on hover) -->
+        <div class="card-top-bar"></div>
+
+        <!-- Icon -->
+        <div class="icon-wrapper">
+          <div class="icon-box">
+            <i [class]="service.icon"></i>
+          </div>
+          <div class="icon-glow"></div>
         </div>
 
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
+        <!-- Card Content -->
+        <div class="card-body">
+          <h3 class="card-title">{{ service.title }}</h3>
+          <p class="card-desc">{{ service.description }}</p>
 
-        <button (click)="openModal(service)" class="btn">
-          View Details
-        </button>
+          <!-- Feature preview (first 3 items) -->
+          <ul class="feature-list">
+            <li *ngFor="let item of service.details.items.slice(0, 3)">
+              <i class="fas fa-check-circle"></i>
+              <span>{{ item }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer">
+          <button (click)="openModal(service)" class="btn-details">
+            View Details <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
 
       </div>
 
     </div>
 
+    <!-- See More Button -->
     <div *ngIf="showSeeMore" class="see-more-container">
       <button class="see-more-btn" (click)="goToServicesPage()">
-        See More Services <i class="fas fa-arrow-right"></i>
+        <i class="fas fa-th-large"></i>
+        See All Services
+        <i class="fas fa-arrow-right"></i>
       </button>
     </div>
 
   </div>
 
   <!-- MODAL -->
-  <div class="modal-overlay" [ngClass]="{'closing': isClosingModal}" *ngIf="selectedService || isClosingModal" (click)="onModalOverlayClick($event)">
+  <div class="modal-overlay" [ngClass]="{'closing': isClosingModal}"
+       *ngIf="selectedService || isClosingModal"
+       (click)="onModalOverlayClick($event)">
 
     <div class="modal-box popIn" [ngClass]="{'closing': isClosingModal}" (click)="$event.stopPropagation()">
 
-      <span class="close-btn" (click)="closeModal()" title="Close (Press ESC)">✖</span>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <i [class]="selectedService?.icon"></i>
+        </div>
+        <div>
+          <h2>{{ selectedService?.title }}</h2>
+          <p class="modal-sub">Service Details & Features</p>
+        </div>
+        <button class="close-btn" (click)="closeModal()" title="Close (Press ESC)">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-      <h2>{{ selectedService?.title }}</h2>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <ul>
+          <li *ngFor="let item of selectedService?.details?.items" class="modal-item">
+            <span class="tick-icon">✔</span> {{ item }}
+          </li>
+        </ul>
 
-      <ul>
-        <li *ngFor="let item of selectedService?.details?.items" class="modal-item">
-          <span class="tick-icon">✔</span> {{ item }}
-        </li>
-      </ul>
+      </div>
 
-      <button class="btn" (click)="closeModal()">Close</button>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <a routerLink="/contact" class="modal-cta-btn" (click)="closeModal()">
+          <i class="fas fa-phone-alt"></i> Get Free Quote
+        </a>
+        <button class="modal-close-btn" (click)="closeModal()">Close</button>
+      </div>
 
     </div>
 

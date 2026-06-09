@@ -41,7 +41,7 @@ export class DataService {
         "id": 1,
         "title": "Electric & Electronic Contracting",
         "description": "Complete electrical and electronic works on contract basis for all types of projects",
-        "icon": "fas fa-bolt",
+        "icon": "fas fa-hard-hat",
         "details": {
           "title": "Service Details",
           "items": [
@@ -75,7 +75,7 @@ export class DataService {
         "id": 3,
         "title": "Electrical Maintenance",
         "description": "Regular electrical maintenance to ensure safe and efficient operation",
-        "icon": "fas fa-tools",
+        "icon": "fas fa-cogs",
         "details": {
           "title": "Service Details",
           "items": [
@@ -109,7 +109,7 @@ export class DataService {
         "id": 5,
         "title": "Home Automation Systems",
         "description": "Smart electrical automation for modern homes",
-        "icon": "fas fa-home",
+        "icon": "fas fa-microchip",
         "details": {
           "title": "Service Details",
           "items": [
@@ -160,7 +160,7 @@ export class DataService {
         "id": 8,
         "title": "Electrical Panels & Control Panels",
         "description": "Installation of LT panels, DB boards and control panels",
-        "icon": "fas fa-server",
+        "icon": "fas fa-th-large",
         "details": {
           "title": "Service Details",
           "items": [
@@ -177,7 +177,7 @@ export class DataService {
         "id": 9,
         "title": "Cable Laying & Termination",
         "description": "Underground and overhead electrical cable installation",
-        "icon": "fas fa-project-diagram",
+        "icon": "fas fa-ethernet",
         "details": {
           "title": "Service Details",
           "items": [
@@ -194,7 +194,7 @@ export class DataService {
         "id": 10,
         "title": "Generator & Power Backup Systems",
         "description": "Installation and maintenance of DG sets and power backup",
-        "icon": "fas fa-car-battery",
+        "icon": "fas fa-charging-station",
         "details": {
           "title": "Service Details",
           "items": [
@@ -228,7 +228,7 @@ export class DataService {
         "id": 12,
         "title": "CCTV & Electronic Systems",
         "description": "Installation of CCTV surveillance and electronic security systems",
-        "icon": "fas fa-video",
+        "icon": "fas fa-camera",
         "details": {
           "title": "Service Details",
           "items": [
@@ -262,7 +262,7 @@ export class DataService {
         "id": 14,
         "title": "Annual Maintenance Contract (AMC)",
         "description": "Long term electrical maintenance for buildings and industries",
-        "icon": "fas fa-calendar-check",
+        "icon": "fas fa-handshake",
         "details": {
           "title": "Service Details",
           "items": [
