@@ -1,6 +1,6 @@
 .testimonial-form-section {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #f9f8f4 0%, #f5f5f5 50%, #f0ece0 100%);
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0d0d1a 100%);
   position: relative;
 }
 
@@ -32,10 +32,7 @@
 .section-title {
   font-size: 2.2rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #f5a623 0%, #00d4ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
   margin-bottom: 14px;
 }
 
@@ -49,7 +46,7 @@
 
 .section-subtitle {
   font-size: 1.05rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Card */
@@ -57,8 +54,18 @@
   background: #fff;
   border-radius: 20px;
   padding: 44px 48px;
-  box-shadow: 0 20px 60px rgba(245, 166, 35, 0.12);
-  border: 1px solid rgba(245, 166, 35, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(245, 166, 35, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f5a623, #00d4ff);
 }
 
 /* Banners */
@@ -132,7 +139,7 @@
 label {
   font-size: 0.88rem;
   font-weight: 600;
-  color: #444;
+  color: #1a1a2e;
   margin-bottom: 8px;
   letter-spacing: 0.3px;
 }
@@ -354,8 +361,9 @@ select {
 }
 
 .emoji-btn.selected {
-  border-color: #f59e0b;
-  background: #fff8e1;
+  border-color: #f5a623;
+  background: rgba(245, 166, 35, 0.08);
+  box-shadow: 0 4px 14px rgba(245, 166, 35, 0.2);
 }
 
 .emoji-icon {
@@ -374,7 +382,7 @@ select {
   align-items: center;
   gap: 10px;
   font-weight: 600;
-  color: #1f2937;
+  color: #1a1a2e;
 }
 
 .selected-emoji {
