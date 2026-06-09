@@ -5,16 +5,41 @@
   </div>
 
   <div class="slides-container">
-    <div *ngFor="let slide of slides; let i = index" 
-         class="slide" 
+    <div *ngFor="let slide of slides; let i = index"
+         class="slide"
          [class.active]="i === currentSlide"
          [attr.data-slide]="i"
          [style.backgroundImage]="'url(' + slide.image + ')'">
+
       <div class="slide-overlay"></div>
+
       <div class="slide-content">
-        <h1 class="slide-title popIn">{{ slide.title }}</h1>
-        <p class="slide-subtitle fadeInUp">{{ slide.subtitle }}</p>
-        <!-- <button class="cta-btn bounce-anim">{{ slide.cta }}</button> -->
+
+        <!-- Badge -->
+        <div class="slide-badge">{{ slide.badge }}</div>
+
+        <!-- Title with highlighted word -->
+        <h1 class="slide-title">
+          {{ slide.title }}<br>
+          <span class="slide-highlight">{{ slide.highlight }}</span>
+        </h1>
+
+        <!-- Divider line -->
+        <div class="slide-divider"></div>
+
+        <!-- Subtitle -->
+        <p class="slide-subtitle">{{ slide.subtitle }}</p>
+
+        <!-- CTA Buttons -->
+        <div class="slide-buttons">
+          <a routerLink="/contact" class="btn-primary">
+            {{ slide.cta }} <i class="fas fa-arrow-right"></i>
+          </a>
+          <a routerLink="/services" class="btn-secondary">
+            Our Services
+          </a>
+        </div>
+
       </div>
     </div>
   </div>

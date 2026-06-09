@@ -333,6 +333,13 @@
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
 }
 
+.tick-icon {
+  color: #27ae60;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
 .close-btn {
   position: absolute;
   top: 24px;

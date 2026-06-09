@@ -3,8 +3,11 @@ import { SeoService } from '../../services/seo.service';
 
 interface Slide {
   id: number;
+  badge: string;
   title: string;
+  highlight: string;
   subtitle: string;
+  cta: string;
   image: string;
 }
 
@@ -17,27 +20,39 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   slides: Slide[] = [
     {
       id: 1,
-      title: 'Professional Electrical Solutions',
-      subtitle: 'Powering Your Future with Excellence & Innovation',
+      badge: '⚡ Trusted Since 2010',
+      title: 'Smart Electrical',
+      highlight: 'Solutions',
+      subtitle: 'Powering homes, offices & industries with intelligent electrical systems built for the future.',
+      cta: 'Explore Services',
       image: 'assets/images/slides/5.png'
     },
     {
       id: 2,
-      title: 'Smart Home Automation',
-      subtitle: 'Transform Your Home with Intelligent Electrical Systems',
-      image: 'assets/images/slides/2.png'
+      badge: '🔬 Advanced Engineering',
+      title: 'Innovative Electrical',
+      highlight: 'Engineering',
+      subtitle: 'Cutting-edge design, precision installation and modern automation for every project.',
+      cta: 'Get Free Quote',
+      image: 'assets/images/slides/4.png'
     },
     {
       id: 3,
-      title: 'Industrial Excellence',
-      subtitle: 'Reliable Solutions for Your Industrial Needs',
-      image: 'assets/images/slides/3.png'
+      badge: '🛡️ Safe & Certified',
+      title: 'Expert Wiring &',
+      highlight: 'Installation',
+      subtitle: 'High-quality wiring and cabling delivered safely, on time and within your budget.',
+      cta: 'View Our Work',
+      image: 'assets/images/slides/1.png'
     },
     {
       id: 4,
-      title: 'Solar Energy Solutions',
-      subtitle: 'Sustainable Power for a Better Tomorrow',
-      image: 'assets/images/slides/4.png'
+      badge: '🏗️ End-to-End Projects',
+      title: 'Complete Electrical',
+      highlight: 'Contracting',
+      subtitle: 'From residential wiring to large-scale industrial projects — we handle it all.',
+      cta: 'Contact Us Today',
+      image: 'assets/images/slides/3.png'
     }
   ];
 
@@ -58,8 +73,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
 
     // Start auto slide
     this.autoSlideInterval = setInterval(() => {
-      this.startAutoSlide();
-    }, 2000); // Change slide every 2 seconds
+      this.nextSlide();
+    }, 4000); // Change slide every 4 seconds
   }
 
   ngOnDestroy() {
@@ -91,7 +106,9 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   }
 
   onMouseLeave() {
-    this.startAutoSlide();
+    this.autoSlideInterval = setInterval(() => {
+      this.nextSlide();
+    }, 4000);
   }
 }
 
