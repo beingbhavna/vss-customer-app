@@ -21,7 +21,6 @@ export class TestimonialFormComponent {
     'Electrical Installation',
     'Electrical Maintenance',
     'Repair & Troubleshooting',
-    'Home Automation',
     'Industrial Solutions',
     'Electric & Electronic Contracting'
   ];

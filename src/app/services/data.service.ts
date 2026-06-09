@@ -106,23 +106,6 @@ export class DataService {
         }
       },
       {
-        "id": 5,
-        "title": "Home Automation Systems",
-        "description": "Smart electrical automation for modern homes",
-        "icon": "fas fa-microchip",
-        "details": {
-          "title": "Service Details",
-          "items": [
-            "Smart switch and lighting control",
-            "Mobile app based home control",
-            "Voice automation (Alexa/Google)",
-            "Energy saving automation setup",
-            "Security integration with automation"
-          ],
-          "priceRange": "₹1,00,000 - ₹10,00,000"
-        }
-      },
-      {
         "id": 6,
         "title": "Industrial Electrical Solutions",
         "description": "Advanced electrical solutions for industries and factories",

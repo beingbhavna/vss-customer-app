@@ -28,8 +28,32 @@ export class FeedbackService {
 
   constructor(private ngZone: NgZone, private http: HttpClient) {
     this.loadFeedbacks();
-    this.feedbacksSubject.next([...this.feedbacks]); // Emit initial state
+    this.feedbacksSubject.next([...this.feedbacks]); // Emit local state immediately
     this.setupStorageListener();
+    this.loadFromApi(); // Then fetch from backend (shared across all devices)
+  }
+
+  // Fetch testimonials from the backend API and update the observable
+  loadFromApi(): void {
+    this.http.get<{ success: boolean; data: any[] }>(`${this.apiUrl}/api/testimonials`).pipe(
+      catchError(() => of(null))
+    ).subscribe(response => {
+      if (response?.success && Array.isArray(response.data) && response.data.length > 0) {
+        // Map API response fields to Feedback interface
+        const apiFeedbacks: Feedback[] = response.data.map((item: any, index: number) => ({
+          id         : item.id ?? index,
+          customerName: item.customerName ?? item.customer_name ?? '',
+          email      : item.email ?? '',
+          service    : item.service ?? '',
+          rating     : Number(item.rating) || 5,
+          message    : item.message ?? '',
+          date       : item.date ? new Date(item.date) : new Date(),
+        }));
+        // Replace local feedbacks with the shared database data
+        this.feedbacks = apiFeedbacks;
+        this.feedbacksSubject.next([...this.feedbacks]);
+      }
+    });
   }
 
   // Listen for storage changes from other tabs/windows
@@ -119,17 +143,21 @@ export class FeedbackService {
     return false;
   }
 
-  // Submit testimonial to backend API + save locally + emit refresh
+  // Submit testimonial to backend API, then reload from API so all devices see it
   submitTestimonial(feedback: Omit<Feedback, 'id' | 'date'>): Observable<any> {
     return new Observable(observer => {
-      this.http.post(`${this.apiUrl}/api/testimonial`, feedback).pipe(
+      this.http.post<any>(`${this.apiUrl}/api/testimonial`, feedback).pipe(
         catchError(err => {
           console.warn('Backend unavailable, saving locally only:', err.message);
+          // Fall back: save to localStorage so at least this device sees it
+          this.addFeedback(feedback);
           return of({ success: true, local: true });
         })
-      ).subscribe(() => {
-        // Save locally AND emit BehaviorSubject so TestimonialsComponent refreshes instantly
-        this.addFeedback(feedback);
+      ).subscribe(response => {
+        if (!response?.local) {
+          // Backend saved successfully — refresh list from API so all devices see it
+          this.loadFromApi();
+        }
         observer.next({
           success: true,
           message: 'Thank you! Your testimonial is now visible to all customers on our Testimonials page.'
