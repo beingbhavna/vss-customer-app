@@ -139,7 +139,7 @@ export class TestimonialFormComponent {
           this.successMessage = response.message || 'Thank you! Your testimonial is now visible to all customers on our Testimonials page.';
 
           // Send WhatsApp notification to admin in Hindi
-          this.sendWhatsAppNotification(feedbackData);
+          // this.sendWhatsAppNotification(feedbackData);
 
           this.testimonialForm.reset();
           this.submitted = false;
