@@ -38,8 +38,9 @@ export class SeoService {
     }
     this.updateMetaTag('author', data.author || 'VSSEnterprises');
 
-    // Canonical URL
-    const canonicalUrl = data.url ? `${this.baseUrl}${data.url}` : this.baseUrl;
+    // Canonical URL — always use clean path (no hash)
+    const cleanPath = data.url ? data.url.replace(/^#/, '') : '';
+    const canonicalUrl = cleanPath ? `${this.baseUrl}${cleanPath}` : this.baseUrl;
     this.updateCanonicalURL(canonicalUrl);
 
     // Open Graph Tags
@@ -90,11 +91,20 @@ export class SeoService {
    * Update Open Graph tags for social sharing
    */
   private updateOpenGraphTags(data: any): void {
-    this.updateMetaTag('og:title', data.title);
-    this.updateMetaTag('og:description', data.description);
-    this.updateMetaTag('og:image', data.image);
-    this.updateMetaTag('og:url', data.url);
-    this.updateMetaTag('og:type', data.type);
+    this.updatePropertyTag('og:title', data.title);
+    this.updatePropertyTag('og:description', data.description);
+    this.updatePropertyTag('og:image', data.image);
+    this.updatePropertyTag('og:url', data.url);
+    this.updatePropertyTag('og:type', data.type);
+  }
+
+  private updatePropertyTag(property: string, content: string): void {
+    const tag = this.metaService.getTag(`property='${property}'`);
+    if (tag) {
+      this.metaService.updateTag({ property, content });
+    } else {
+      this.metaService.addTag({ property, content });
+    }
   }
 
   /**
