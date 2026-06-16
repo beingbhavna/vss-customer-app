@@ -22,11 +22,11 @@ export class BlogComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Set SEO tags for blog page
     this.seoService.updateSeoTags({
-      title: 'Blog - Electrical Tips & Industry News',
-      description: 'Read VSSEnterprises blog for latest articles on electrical safety, energy efficiency, home automation, and industry trends. Expert tips from our team.',
-      keywords: 'electrical blog, electrical safety, energy efficiency, home automation, electrical tips, industry news',
+      title: 'Blog — Electrical Contracting Insights & Technical Guides',
+      description: 'Technical articles from VSS Enterprises on electrical contracting, AMC benefits, LT/HT panels, IS standard compliance, earthing systems and more. Written for project managers and facility teams.',
+      keywords: 'electrical contracting blog, AMC electrical maintenance, LT HT panels explained, IS 3043 earthing, electrical safety compliance, industrial electrical guide',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/blog'
+      url: '/blog'
     });
 
     this.blogPosts = this.dataService.getBlogPosts();

@@ -76,7 +76,7 @@ export class FeedbackFormComponent implements OnInit {
       description: 'Help us improve! Share your feedback and experience with VSSEnterprises services. Your reviews help us serve better.',
       keywords: 'feedback, review, rating, customer feedback, testimonial',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/feedback-form'
+      url: '/feedback-form'
     });
   }
 

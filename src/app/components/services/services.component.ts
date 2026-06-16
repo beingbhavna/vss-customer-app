@@ -34,7 +34,7 @@ export class ServicesComponent implements OnInit, OnDestroy {
       description: 'Explore VSSEnterprises comprehensive electrical services including installation, maintenance, repairs, home automation, and solar solutions for residential and commercial needs.',
       keywords: 'electrical services, installation, maintenance, repairs, home automation, solar panels, commercial electrical, industrial solutions',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/services'
+      url: '/services'
     });
 
     this.services = this.dataService.getServices();

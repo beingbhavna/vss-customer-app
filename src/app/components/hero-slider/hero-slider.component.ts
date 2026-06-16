@@ -20,37 +20,37 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   slides: Slide[] = [
     {
       id: 1,
-      badge: '⚡ Trusted Since 2010',
-      title: 'Smart Electrical',
-      highlight: 'Solutions',
-      subtitle: 'Powering homes, offices & industries with intelligent electrical systems built for the future.',
+      badge: '⚡ Registered Electrical Contractor',
+      title: 'Turnkey Electrical',
+      highlight: 'Contracting',
+      subtitle: 'End-to-end electrical project execution for government, industrial & commercial clients — from drawings and installation to testing and handover.',
       cta: 'Explore Services',
       image: 'assets/images/slides/5.png'
     },
     {
       id: 2,
-      badge: '🔬 Advanced Engineering',
-      title: 'Innovative Electrical',
-      highlight: 'Engineering',
-      subtitle: 'Cutting-edge design, precision installation and modern automation for every project.',
+      badge: '🏭 Industrial & Commercial Experts',
+      title: 'Industrial Electrical',
+      highlight: 'Solutions',
+      subtitle: 'Factory wiring, 3-phase systems, motor connections, LT/HT panels and power distribution — engineered for heavy-load industrial environments.',
       cta: 'Get Free Quote',
       image: 'assets/images/slides/4.png'
     },
     {
       id: 3,
-      badge: '🛡️ Safe & Certified',
-      title: 'Expert Wiring &',
+      badge: '🛡️ IS / IEC Certified Work',
+      title: 'Safe Wiring &',
       highlight: 'Installation',
-      subtitle: 'High-quality wiring and cabling delivered safely, on time and within your budget.',
-      cta: 'View Our Work',
+      subtitle: 'Residential, commercial and office electrical installations by certified electricians — fully compliant with Indian electrical standards.',
+      cta: 'View Our Services',
       image: 'assets/images/slides/1.png'
     },
     {
       id: 4,
-      badge: '🏗️ End-to-End Projects',
-      title: 'Complete Electrical',
-      highlight: 'Contracting',
-      subtitle: 'From residential wiring to large-scale industrial projects — we handle it all.',
+      badge: '📋 AMC & Long-Term Support',
+      title: 'Annual Maintenance',
+      highlight: 'Contracts',
+      subtitle: 'Protect your electrical infrastructure with our AMC plans — monthly inspections, emergency breakdown support and priority response, all year round.',
       cta: 'Contact Us Today',
       image: 'assets/images/slides/3.png'
     }
@@ -64,11 +64,11 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Set SEO tags for home page
     this.seoService.updateSeoTags({
-      title: 'Home - Professional Electrical Solutions',
-      description: 'Welcome to VSSEnterprises - Your trusted partner for professional electrical solutions. Powering your future with excellence and innovation.',
-      keywords: 'electrical services, electrical installation, professional electrical solutions, home automation, industrial solutions',
+      title: 'Turnkey Electrical Contractors — VSS Enterprises',
+      description: 'VSS Enterprises — registered electrical & electronic contractors for government, industrial and commercial projects. Wiring, panels, cable laying, earthing, CCTV, AMC and more.',
+      keywords: 'electrical contractor, turnkey electrical project, industrial wiring, LT HT panel installation, cable laying, earthing, CCTV installation, AMC electrical, VSS Enterprises',
       image: 'https://www.VSSEnterprises.com/assets/images/slides/5.png',
-      url: '/#/home'
+      url: '/home'
     });
 
     // Start auto slide

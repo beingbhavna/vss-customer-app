@@ -38,7 +38,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         description: this.post.excerpt,
         keywords: 'electrical blog, ' + this.post.title,
         image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-        url: '/#/blog/' + id
+        url: '/blog/' + id
       });
     });
   }

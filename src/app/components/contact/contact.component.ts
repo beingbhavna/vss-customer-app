@@ -42,7 +42,7 @@ export class ContactComponent implements OnInit, OnDestroy {
       description: 'Get in touch with VSSEnterprises. Reach out to our team for electrical services, inquiries, or support. Fast response guaranteed.',
       keywords: 'contact, electrical services, get in touch, support, inquiries',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/contact'
+      url: '/contact'
     });
 
     // Delay to ensure DOM is rendered

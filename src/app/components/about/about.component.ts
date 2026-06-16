@@ -18,11 +18,11 @@ export class AboutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // Set SEO tags for about page
     this.seoService.updateSeoTags({
-      title: 'About Us',
-      description: 'Learn about VSSEnterprises - your trusted partner for professional electrical solutions. With years of expertise, we provide quality service to residential, commercial, and industrial clients.',
-      keywords: 'about us, electrical company, professional services, trusted electrician, electrical expertise',
+      title: 'About Us — Registered Electrical Contractor',
+      description: 'VSS Enterprises is a registered electrical & electronic contracting firm delivering turnkey projects for government, industrial and commercial clients. IS/IEC certified, 445+ projects completed.',
+      keywords: 'about VSS Enterprises, registered electrical contractor, turnkey electrical projects, IS IEC certified electricians, government electrical contractor',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/about'
+      url: '/about'
     });
 
     // Delay to ensure DOM is rendered

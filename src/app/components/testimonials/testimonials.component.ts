@@ -76,7 +76,7 @@ export class TestimonialsComponent implements OnInit, OnDestroy {
       description: 'Read what our satisfied clients say about VSSEnterprises services. Discover real testimonials from residential, commercial, and industrial customers.',
       keywords: 'testimonials, reviews, client feedback, customer reviews, electrical services reviews',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/testimonials'
+      url: '/testimonials'
     });
 
     // Subscribe to real-time feedback updates

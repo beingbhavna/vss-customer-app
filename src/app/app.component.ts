@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
       description: 'VSSEnterprises provides professional electrical solutions for residential, commercial, and industrial clients. Expert installation, maintenance, and repair services available 24/7.',
       keywords: 'electrical services, electrical installation, electrical repair, home automation, solar panels, industrial solutions',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
-      url: '/#/home'
+      url: '/home'
     });
 
     // Add organization schema
