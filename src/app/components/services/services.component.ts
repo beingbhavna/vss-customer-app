@@ -30,9 +30,9 @@ export class ServicesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // Set SEO tags for services page
     this.seoService.updateSeoTags({
-      title: 'Our Services',
-      description: 'Explore VSSEnterprises comprehensive electrical services including installation, maintenance, repairs, home automation, and solar solutions for residential and commercial needs.',
-      keywords: 'electrical services, installation, maintenance, repairs, home automation, solar panels, commercial electrical, industrial solutions',
+      title: 'Electrical Services Varanasi — Wiring, Panels, AMC, CCTV & More',
+      description: 'VSS Enterprises offers 13+ electrical services in Varanasi: turnkey contracting, wiring installation, LT/HT panels, cable laying, earthing, CCTV, generator & UPS, testing & commissioning, and Annual Maintenance Contracts (AMC). IS/IEC certified.',
+      keywords: 'electrical services Varanasi, wiring installation Varanasi, LT panel installation, HT panel contractor, cable laying Varanasi, earthing contractor, CCTV installation, AMC electrical Varanasi, generator installation, industrial electrical UP',
       image: 'https://www.VSSEnterprises.com/assets/images/logo.jpg',
       url: '/services'
     });

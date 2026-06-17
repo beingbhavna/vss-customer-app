@@ -89,11 +89,18 @@
         <div class="form-group">
           <select formControlName="service" [disabled]="isLoading" [class.is-invalid]="submitted && f['service'].errors">
             <option value="">Select Service</option>
+            <option value="contracting">Electric & Electronic Contracting</option>
             <option value="installation">Electrical Installation</option>
             <option value="maintenance">Electrical Maintenance</option>
             <option value="repair">Repair & Troubleshooting</option>
-            <option value="automation">Home Automation</option>
-            <option value="industrial">Industrial Solutions</option>
+            <option value="industrial">Industrial Electrical Solutions</option>
+            <option value="panels">Panels & Control Panels</option>
+            <option value="cable">Cable Laying & Termination</option>
+            <option value="generator">Generator & Power Backup</option>
+            <option value="earthing">Earthing & Electrical Safety</option>
+            <option value="cctv">CCTV & Electronic Systems</option>
+            <option value="testing">Testing & Commissioning</option>
+            <option value="amc">Annual Maintenance Contract (AMC)</option>
           </select>
           <small *ngIf="submitted && f['service'].errors" class="error-text">
             Please select a service

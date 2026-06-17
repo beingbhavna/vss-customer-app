@@ -123,11 +123,14 @@ export class SeoService {
   }
 
   /**
-   * Create and inject Schema.org JSON-LD structured data
+   * Create and inject Schema.org JSON-LD structured data.
+   * Marks the script with data-managed="true" so removeSchemas() can clean it up
+   * on navigation without removing the static schemas in index.html.
    */
   createSchema(schema: any): void {
     const schemaScript = document.createElement('script');
     schemaScript.setAttribute('type', 'application/ld+json');
+    schemaScript.setAttribute('data-managed', 'true');
     schemaScript.textContent = JSON.stringify(schema);
     document.head.appendChild(schemaScript);
   }
