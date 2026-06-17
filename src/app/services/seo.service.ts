@@ -15,8 +15,8 @@ export interface SeoData {
   providedIn: 'root'
 })
 export class SeoService {
-  private baseUrl = 'https://www.VSSEnterprises.com'; // Update with your domain
-  private defaultImage = 'https://www.VSSEnterprises.com/assets/images/logo.jpg'; // Update with your domain
+  private baseUrl = 'https://vss-customer-app.pages.dev';
+  private defaultImage = 'https://vss-customer-app.pages.dev/assets/images/logo.jpg';
 
   constructor(
     private metaService: Meta,
